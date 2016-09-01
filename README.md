@@ -1,2 +1,0 @@
-# Huntard
-CSC 4350 Software Engineering
