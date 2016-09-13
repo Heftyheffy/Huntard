@@ -25,4 +25,12 @@ Sep. 8 2016 -- Documentations #2: Requirements Elicitations
 Sep. 12, 2016 -- Pseudo code uploaded
   James uploaded the Pseudo code
   
+Sep. 13 2016 -- added infos.
+  Jeffrey completed WSD chart -- please look --
+  Chase completed Gantt Chart -- please look --
+  Hunter completed problem statements -- please look --
+  James completed pseudo code -- please look --
+  
+  Robert will #complete RTM chart 
+  
   
