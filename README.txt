@@ -33,4 +33,7 @@ Sep. 13 2016 3:35PM -- added infos.
   
   Robert will #complete RTM chart 
   
+Sep. 14 2016 9:49 AM 
+  Completed all requirements besides: dictionary and rational topic for shall statement problems.
+  
   
