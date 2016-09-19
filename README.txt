@@ -36,4 +36,6 @@ Sep. 13 2016 3:35PM -- added infos.
 Sep. 14 2016 9:49 AM 
   Completed all requirements besides: dictionary and rational topic for shall statement problems.
   
+Sep. 19 2:21PM -- Document #2 is completed.
+  Bhola assigned document #3. 
   
