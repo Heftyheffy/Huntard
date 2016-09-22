@@ -39,3 +39,7 @@ Sep. 14 2016 9:49 AM
 Sep. 19 2:21PM -- Document #2 is completed.
   Bhola assigned document #3. 
   
+Sept. 22, 2016 4:05Pm -- Prototype presentations.
+  -Start on documention 3.
+  - Hunter is project coordinator
+  
