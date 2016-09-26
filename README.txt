@@ -43,3 +43,8 @@ Sept. 22, 2016 4:05Pm -- Prototype presentations.
   -Start on documention 3.
   - Hunter is project coordinator
   
+ Sept. 26 2016 1:45PM
+  - creating documentation 3 
+  - Due date: this thursday
+  
+  
