@@ -15,7 +15,7 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 *assigned roles for documentation 2
 #dead-line: Sept. 15 2016 for documentation 2
 
-### Sep. 8 2016 -- Documentations #2: Requirements Elicitations 
+### Sep. 8 2016 -- Documentations 2: Requirements Elicitations 
   Hunter: 2 -- Problem statements using "shall" statements
   Jeffrey: 1, 4, 6, 7 -- COVER PAGE, Update WSD, dictionary explaining terms, rationale for the topic chosen
   Robert: 3 -- RTM
@@ -39,16 +39,16 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
   Bhola assigned document 3. 
   
 ### Sept. 22, 2016 4:05Pm -- Prototype presentations. 
-  -Start on documention 3.
-  - Hunter is project coordinator
+- Start on documention 3.
+- Hunter is project coordinator
   
 ### Sept. 26 2016 1:45PM 
-  - creating documentation 3 
-  - Due date: this thursday
+- creating documentation 3 
+- Due date: this thursday
  
 ### Sept. 27, 2016 10:34AM 
   -Deciding on the roles assigning to each member
-  -Hunter is the project coordinator.
+  **Hunter is the project coordinator. **
 #DEADLINE: Documentation 3: Sept. 29, 2016
 #### Documentation 3
   1. Title page
