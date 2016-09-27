@@ -51,14 +51,14 @@ JK: I completed WSD chart, introduction assignment #1 and team contract.
   -Hunter is the project coordinator.
   
 #### Documentation 3
-  -1. Title page
-  -2. Horizontal prototype 
-  -3. RTM - first 5 columns and all other updates
-  -4. Use cases and Interaction Diagram - example as per given in class
-  -5. Function Point Cost Analysis
-  -6. Database to be used
-  -7. Updated WSD 
-  -8. Updated Gantt Chart
-  -9. Dictionary explaining shit jargon
-  -10. A rational for the use cases, etc
+  1. Title page
+  2. Horizontal prototype 
+  3. RTM - first 5 columns and all other updates
+  4. Use cases and Interaction Diagram - example as per given in class
+  5. Function Point Cost Analysis
+  6. Database to be used
+  7. Updated WSD 
+  8. Updated Gantt Chart
+  9. Dictionary explaining shit jargon
+  10. A rational for the use cases, etc
   
