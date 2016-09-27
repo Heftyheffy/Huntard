@@ -49,7 +49,7 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 ### Sept. 27, 2016 10:34AM 
   -Deciding on the roles assigning to each member
   -Hunter is the project coordinator.
-  #DEADLINE: Documentation 3: Sept. 29, 2016
+#DEADLINE: Documentation 3: Sept. 29, 2016
 #### Documentation 3
   1. Title page
   2. Horizontal prototype 
