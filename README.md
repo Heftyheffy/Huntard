@@ -68,3 +68,4 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - Huntard: Mentality, Updates, Radio
 - James O'Leary: Food & Water, Scavenging & Hunting, Scavenging Mini-Game
 - Chase: Winning Game, Night Activities, Daily Decision
+## Missing: Functional Point Cost Analysis 
