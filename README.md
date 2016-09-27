@@ -2,7 +2,9 @@
 ## Coders for Harambe Devs.
 
 CSC 4350 (Software Engineering)
+
 Fall 2016
+
 Hunter Stanley, Robert Batson, Chase Randall, James O'Leary, Jeffrey Kim
 
 ### Aug. 30, 2016
