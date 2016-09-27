@@ -6,7 +6,7 @@ Fall 2016
 Hunter Stanley, Robert Batson, Chase Randall, James O'Leary, Jeffrey Kim
 
 ### Aug. 30, 2016
-JK: I completed WSD chart, introduction assignment #1 and team contract. 
+JK: I completed WSD chart, introduction assignment 1 and team contract. 
   Will have team meeting pretty soon hopefully to discussion our project planning/ blueprint.
   I will be frequently updating this README document with all our of plans/ "milestones"/ bugs/ debugs
 
@@ -49,7 +49,7 @@ JK: I completed WSD chart, introduction assignment #1 and team contract.
 ### Sept. 27, 2016 10:34AM 
   -Deciding on the roles assigning to each member
   -Hunter is the project coordinator.
-  
+  #DEADLINE: Documentation 3: Sept. 29, 2016
 #### Documentation 3
   1. Title page
   2. Horizontal prototype 
