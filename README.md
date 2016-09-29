@@ -78,13 +78,13 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 ### Document 4 -- Object design
 - Character: 
 - Items:
--   Gun
--   Map
--   Food
--   Water
--   Med Kit
+   Gun
+   Map
+   Food
+   Water
+   Med Kit
 - Mini-Game:
--   Hunting
--   Scavenging
+   Hunting
+   Scavenging
 - DailyDecisions:
 - Huntardgame:
