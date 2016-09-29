@@ -75,7 +75,7 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 # document 3 complete bitch
 
 
-### Document 4 -- Object design
+### Document 4 1:56PM -- Object design
 - Character: 
 - Items:
    Gun
