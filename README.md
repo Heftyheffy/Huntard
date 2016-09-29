@@ -73,3 +73,18 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - Functional Point Cost Analysis open
 
 # document 3 complete bitch
+
+
+### Document 4 -- Object design
+- Character: 
+- Items:
+-   Gun
+-   Map
+-   Food
+-   Water
+-   Med Kit
+- Mini-Game:
+-   Hunting
+-   Scavenging
+- DailyDecisions:
+- Huntardgame:
