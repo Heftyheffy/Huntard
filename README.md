@@ -65,9 +65,11 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
   10. A rational for the use cases, etc
   
 # Use Case: 2:26PM
-- [ x ] Jeffrey Kim: Hunting Mini-Game, BaseDefense, Scavenging
-- [ ] Robert Batson: Start screen, Items, Hunting
+- [ x ] Jeffrey Kim: Hunting Mini-Game, BaseDefense, Scavenging 
+- [ x ] Robert Batson: Start screen, Items, Hunting
 - [ x ] Huntard: Mentality, Updates, Radio
 - [ x ] James O'Leary: Food & Water, Scavenging & Hunting, Scavenging Mini-Game
-- [ ] Chase: Winning Game, Night Activities, Daily Decision
+- [ x ] Chase: Winning Game, Night Activities, Daily Decision
 - Functional Point Cost Analysis open
+
+# document 3 complete bitch
