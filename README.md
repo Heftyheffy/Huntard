@@ -72,19 +72,19 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - [ x ] Chase: Winning Game, Night Activities, Daily Decision
 - Functional Point Cost Analysis open
 
-# document 3 complete bitch
+### document 3 complete bitch
 
 
-### Document 4 1:56PM -- Object design
-- Character: 
-- Items:
-   Gun
-   Map
-   Food
-   Water
-   Med Kit
-- Mini-Game:
-   Hunting
-   Scavenging
-- DailyDecisions:
-- Huntardgame:
+## Document 4 1:56PM -- Object design
+- Character: James
+- Items:  Hunter  
+-  Gun    Hunter
+-  Map    Hunter
+-  Food   Robert  
+-  Water  Robert
+-  Med Kit   Jeffrey
+- Mini-Game: Chase
+-  Hunting    Chase
+-  Scavenging Chase
+- DailyDecisions: Jeffrey
+- Huntardgame: James
