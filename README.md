@@ -65,7 +65,7 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
   10. A rational for the use cases, etc
   
 # Use Case: 2:26PM
--[]Jeffrey Kim: Hunting Mini-Game, BaseDefense, Scavenging
+- [ ] Jeffrey Kim: Hunting Mini-Game, BaseDefense, Scavenging
 - Robert Batson: Start screen, Items, Hunting
 - Huntard: Mentality, Updates, Radio
 - James O'Leary: Food & Water, Scavenging & Hunting, Scavenging Mini-Game
