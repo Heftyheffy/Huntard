@@ -90,3 +90,10 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - Huntardgame: James
 
 ### Completed class design
+## D0cument 4 - 
+- Chase: 2
+- James: 9
+- Huntard: 3, 6
+- Jeffrey: 1,7, 8 
+- Robert: 4
+
