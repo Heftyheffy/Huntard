@@ -88,3 +88,5 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 -  Scavenging Chase
 - DailyDecisions: Jeffrey
 - Huntardgame: James
+
+### Completed class design
