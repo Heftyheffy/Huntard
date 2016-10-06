@@ -18,25 +18,25 @@ public class Resource{
     The random number will be generated outside the object and passed as part of
     the constructor.
     */
-    public Resource(int x)
+    public Resource(int x){...}
 
     /*
         increase amount if resource is acquired
     */
-    public void gainResource (int x)
+    public void gainResource (int x){...}
 
     /*
         decrease amount when resource is used or lost
     */
-    public void loseResource(int x)
+    public void loseResource(int x){...}
 
     /*
         return amount of the resource available
     */
-    public int getAmount(int x);
+    public int getAmount(int x){...}
 
     /*
         set the amount of resource available
     */
-    public void setAmount(int x);
+    public void setAmount(int x){...}
 }
