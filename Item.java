@@ -14,12 +14,12 @@ public class Item{
       the public constructor will only accept one parameter of the name because that is all that the classes that inherit
       this class will have in common
      */
-    public Item(string name){}    
+    public Item(string name){...}    
 
     /*
       This method returns the name of the object
      */
-    public string getName();
+    public string getName(){...}
 
 
 }

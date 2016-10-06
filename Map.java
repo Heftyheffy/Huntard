@@ -11,13 +11,13 @@ public class Map{
     /*
       constructor calls super(name) and sets durability value
      */
-    public Map(name);
+    public Map(name){...}    
     /*
       gets durability
      */
-    public getDurability();
+    public getDurability(){...}
     /*
       decreases the durability of the map by a specified value
      */
-    public decreaseDurability();
+    public decreaseDurability(){...}
 }

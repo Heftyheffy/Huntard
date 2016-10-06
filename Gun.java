@@ -13,17 +13,17 @@ public class Gun extends Item{
     /*
       The constructor will call super(name) and set the durability to a value that will be the same between all guns
      */
-    public Gun(name, strength);
+    public Gun(name, strength){...}
     /*
       This function gets the strength of the gun
      */
-    public int getStrength();
+    public int getStrength(){...}
     /*
       This function gets the durability of the gun
      */
-    public int getDurability();
+    public int getDurability(){...}
     /*
       This function decreases the durability by a constant factor whenever it is used
      */
-    public void decreaseDurability();	
+    public void decreaseDurability(){...}
 }
