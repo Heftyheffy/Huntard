@@ -41,14 +41,14 @@ public class MINI_GAME extends HUNTING_GAME{
                          int play_time);
      
     
-    /*  
-           METHODS:
+      
+      /*     METHODS: */
       public void start_game();         // starts the mini game
       public void end_game();           //ends the mini game
       public void alert_player();       // issues various alerts (for example: time left; items won; or other reward/ punishment)
       public void upload_player_data(); // uploads and updates player data
-      upload_item;          // uploads and updates the items
-     */ 
+      public void upload_item;          // uploads and updates the items
+     
 
     public show_item(item1, item2, item3);
     /*
@@ -74,7 +74,7 @@ public class MINI_GAME extends HUNTING_GAME{
      /*
       This function attacks player
      */
-    	
+}    	
     public class Scavenging_Game extends MINI_GAME{
     // Scavenging_Game subclass needs the following fields
     // flashlight: items
@@ -83,10 +83,10 @@ public class MINI_GAME extends HUNTING_GAME{
     //Scavenging_Game subclass has one constructor
     
     //Scavenging_Game uses these methods
-    show_items();    -- show player items
-    upgrade_items(); -- upgrade players items
-    show_map();      -- show map
-    degrade_items;   --items degrades based upon use
+    public show_items();    // show player items
+    public upgrade_items(); // upgrade players items
+    public show_map();      // show map
+    public degrade_items;   // items degrades based upon use
     }
     
     public class Hunting_Game extends MINI_GAME{
@@ -96,11 +96,11 @@ public class MINI_GAME extends HUNTING_GAME{
     //Huntng_Game subclass has one constructor
     
     //Hunting_Game subclass uses these methods
-    use_items();      -- use items
-    update_items();   -- update items
-    show_map();       -- show map
-    attack();         -- attack
+    public use_items();      // use items
+    public update_items();   // update items
+    public show_map();       // show map
+    public attack();         // attack
     
     }
     
-}
+
