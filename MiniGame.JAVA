@@ -35,10 +35,22 @@ public class MINI_GAME extends HUNTING_GAME{
      public int enemy3;
      
      //MINI_GAME uses above fields as constructor for the children
-     public player_info (int start_stat1; int start_stat2; int start_stat3;
-                         int start_item1; int start_item2; int start_item3;
-                         int start_enemy1; int start_enemy2; int start_enemy3;
-                         int play_time);
+     public player_info (int start_stat1, int start_stat2, int start_stat3,
+                         int start_item1, int start_item2, int start_item3,
+                         int start_enemy1, int start_enemy2, int start_enemy3,
+                         int start_play_time){
+         stat1 = start_stat1;
+         stat2 = start_stat2;
+         stat3 = start_stat3;
+         item1 = start_item1;
+         item2 = start_item2;
+         item3 = start_item3;
+         play_time = start_play_time;
+         enemy1 = start_enemy1;
+         enemy2 = start_enemy2;
+         enemy3 = start_enemy3;
+     }
+         
      
     
       
@@ -50,12 +62,12 @@ public class MINI_GAME extends HUNTING_GAME{
       public void upload_item;          // uploads and updates the items
      
 
-    public show_item(item1, item2, item3);
+    public show_item(int item1, int item2, int item3);
     /*
       This function shows items
      */
 
-    public update_item(item1, item2, item3);
+    public update_item(int item1, int item2, int item3);
     /*
       This function updates items
      */
@@ -81,20 +93,37 @@ public class MINI_GAME extends HUNTING_GAME{
     // gun: items
     
     //Scavenging_Game subclass has one constructor
-    
-    //Scavenging_Game uses these methods
+    public Scavening_Game (int start_stat1, int start_stat2, int start_stat3,
+                           int start_item1, int start_item2, int start_item3,
+                           int start_play_time){
+        super (start_stat1, start_stat2, start_stat3,
+               start_item1, start_item2, start_item3,
+               start_play_time);
+    }
+        
+   //Scavenging_Game uses these methods
     public show_items();    // show player items
     public upgrade_items(); // upgrade players items
     public show_map();      // show map
     public degrade_items;   // items degrades based upon use
-    }
+    } //ends Scavengin_Game class
     
     public class Hunting_Game extends MINI_GAME{
     // Hunting_Game subclass needs the following fields
     //  gun: items
     
-    //Huntng_Game subclass has one constructor
-    
+    //Hunting_Game subclass has one constructor
+    public Hunting_Game (int start_stat1, int start_stat2, int start_stat3,
+                         int start_item1, int start_item2, int start_item3,
+                         int start_enemy1, int start_enemy2, int start_enemy3,
+                         int start_play_time) 
+                           ){
+        super (start_stat1, start_stat2, start_stat3,
+               start_item1, start_item2, start_item3,
+               start_enemy1, start_enemy2, start_enemy3,
+               start_play_time);
+    } //ends Hunting_Game class
+        
     //Hunting_Game subclass uses these methods
     public use_items();      // use items
     public update_items();   // update items
