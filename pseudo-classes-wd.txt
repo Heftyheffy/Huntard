@@ -1,0 +1,120 @@
+-----------------------------------------------------------------------------------------------------------------
+Main class()
+- handles starting/running the program
+- instantiates all variables
+
+New Character zookeeper(thatDude,1,2,3,4,etc);
+not too complicated
+-----------------------------------------------------------------------------------------------------------------
+
+Character class()
+Private String charName;
+Private int charStr;
+Private int charHp;
+Private int charStl;
+Private int charPsy;
+Private int charInt;
+
+Public Character(name,strength,hp,stealth,psych,intel){
+name = charName;
+strength = charStr;
+hp = charHp;
+stealth = charStl;
+psych = charPsy;
+intel = charInt;
+}
+
+
+public String getName(){
+return charName;
+}
+public int getStr(){
+return CharStr;
+}
+public int getHp(){
+return charHp;
+}
+public int getStl(){
+return charStl;
+}
+public int getPsy(){
+return charPsy;
+}
+public int getInt(){
+return charInt;
+}
+
+public void strUp(int a){
+charStr+=a;
+}
+public void strDown(int a){
+charStr-=a;
+}
+publiv void hpUp(int a){
+charHp+=a;
+public void hpDown(int a){
+charHp-=a;
+}
+public void stlUp(int a){
+...
+}
+public void stlDown(int a){
+...
+}
+public void psyUp(int a){
+...
+}
+public void psyDown(int a){
+...
+}
+public void intUp(int a){
+...
+}
+public void intDown(int a){
+...
+}
+
+-----------------------------------------------------------------------------------------------------------------
+Class Medic extends Character()
+-example methods here would be
+
+public void medicHeal(int a){
+charHp = charHp + ( 2*a);
+}
+
+and other things of the like.
+
+I don't know what class specific benefits to add. So that should be discussed later.
+
+-----------------------------------------------------------------------------------------------------------------
+*** 3 more Character specific class with added bonuses(they should all select Character as the parent classfor access to variables and methods)
+	-hunter
+	-Spy
+	-Scientist
+	-Doctor
+	-Ninja
+		the names dont matter so much. They just needed to have appropriate strengths and weaknesses.
+-----------------------------------------------------------------------------------------------------------------
+Public class PlayField()
+
+*** This is likely going to be one of the larger classes
+	https://docs.oracle.com/javase/7/docs/api/java/applet/Applet.html
+	^^^^^reference for methods and stuff to change the attributes of the applet
+
+Basically importing java.lang.Object
+		    java.awt.*
+
+this will allow us to edit our gui
+
+methods exist to:
+	play audio clips
+	set the background as an image
+	draw directly onto the field
+	resize itself
+
+Along with methods inherited from other classes in the awt package (brace for wall of text impact) **********
+You dont need to be familiar with every single one of these,  but there are plenty of useful things in here.
+
+action, add, addComponentListener, addFocusListener, addHierarchyBoundsListener, addHierarchyListener, addInputMethodListener, addKeyListener, addMouseListener, addMouseMotionListener, addMouseWheelListener, bounds, checkImage, checkImage, coalesceEvents, contains, contains, createImage, createImage, createVolatileImage, createVolatileImage, disable, disableEvents, dispatchEvent, enable, enable, enableEvents, enableInputMethods, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, firePropertyChange, getBackground, getBaseline, getBaselineResizeBehavior, getBounds, getBounds, getColorModel, getComponentListeners, getComponentOrientation, getCursor, getDropTarget, getFocusCycleRootAncestor, getFocusListeners, getFocusTraversalKeysEnabled, getFont, getFontMetrics, getForeground, getGraphics, getGraphicsConfiguration, getHeight, getHierarchyBoundsListeners, getHierarchyListeners, getIgnoreRepaint, getInputContext, getInputMethodListeners, getInputMethodRequests, getKeyListeners, getLocation, getLocation, getLocationOnScreen, getMouseListeners, getMouseMotionListeners, getMousePosition, getMouseWheelListeners, getName, getParent, getPeer, getPropertyChangeListeners, getPropertyChangeListeners, getSize, getSize, getToolkit, getTreeLock, getWidth, getX, getY, gotFocus, handleEvent, hasFocus, hide, imageUpdate, inside, isBackgroundSet, isCursorSet, isDisplayable, isDoubleBuffered, isEnabled, isFocusable, isFocusOwner, isFocusTraversable, isFontSet, isForegroundSet, isLightweight, isMaximumSizeSet, isMinimumSizeSet, isOpaque, isPreferredSizeSet, isShowing, isValid, isVisible, keyDown, keyUp, list, list, list, location, lostFocus, mouseDown, mouseDrag, mouseEnter, mouseExit, mouseMove, mouseUp, move, nextFocus, paintAll, postEvent, prepareImage, prepareImage, printAll, processComponentEvent, processFocusEvent, processHierarchyBoundsEvent, processHierarchyEvent, processInputMethodEvent, processKeyEvent, processMouseEvent, processMouseMotionEvent, processMouseWheelEvent, remove, removeComponentListener, removeFocusListener, removeHierarchyBoundsListener, removeHierarchyListener, removeInputMethodListener, removeKeyListener, removeMouseListener, removeMouseMotionListener, removeMouseWheelListener, removePropertyChangeListener, removePropertyChangeListener, repaint, repaint, repaint, repaint, requestFocus, requestFocus, requestFocusInWindow, requestFocusInWindow, reshape, revalidate, setBackground, setBounds, setBounds, setComponentOrientation, setCursor, setDropTarget, setEnabled, setFocusable, setFocusTraversalKeysEnabled, setForeground, setIgnoreRepaint, setLocale, setLocation, setLocation, setMaximumSize, setMinimumSize, setName, setPreferredSize, setSize, setSize, setVisible, show, show, size, toString, transferFocus, transferFocusBackward, transferFocusUpCycle
+
+-----------------------------------------------------------------------------------------------------------------
