@@ -4,7 +4,7 @@ Overview:
 The MINI_GAME class serves as the parent class for SCAVENGING_GAME and HUNTING_GAME.  Each sub class inherits the methods and fiends
 from the parent, but then it performs its respective mission.
 At the end of each night the player choses whether
-to hunt or to scavenge for resources. In the HUNTING_GAME, the player kills prey at different rates and receives rewards accoridngely.
+to hunt or to scavenge for resources. In the HUNTING_GAME, the player kills prey at different rates and receives rewards accoridingly.
 In the SCAVENGING_GAME, the player finds resources useful for survival.
 
 Preconditions:

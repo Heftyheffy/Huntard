@@ -25,8 +25,6 @@
  *      in deciding the extreme outcomes.
  *
  *
- *
- *
  */
 public class dailyDecision {
 

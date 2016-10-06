@@ -1,7 +1,7 @@
 /* 
 The main class is going to run the program.
 	-Declare variables
-	-Instantiate assests
+	-Instantiate assets
 	-Save game files
 	-Handle commands
 */

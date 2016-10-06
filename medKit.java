@@ -15,11 +15,8 @@ public class medKit extends items{
     public void checkRequirements(){
         /*
             This method will check to see if the character has bandage and alcohol in items.
-
             @pre: isCharacterSelect(), doesCharHaveItems()
             @post: charMakeMed(), !charMakeMed()
-
-
          */
     }
 
@@ -27,7 +24,6 @@ public class medKit extends items{
         /*
             This method will check and see if a character is selected. If it is not, then it will prompt a warning by
             using GUI. If a character is selected, then the next step will check to see if character has required items.
-
             @pre: isCharacterCreated()
             @post: checkRequirements()
          */
@@ -40,11 +36,5 @@ public class medKit extends items{
             @pre: checkRequirements()
             @post: addHPtoChar()
          */
-    }
-
-    
-
-
-
-
+    }    
 }
