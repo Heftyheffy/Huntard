@@ -49,4 +49,5 @@ public class Resource{
     public void setAmount(int x){
         amount = x;
     }
+
 }
