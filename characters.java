@@ -15,11 +15,12 @@ public class characters {
     private int charPsy;
     private int charInt;
 
-
+/*
+    REMOVED: reason, might as well just do one constructor that takes in everything.
     public characters(String x){
         name = x;
     }
-
+*/
     //Constructor for each individual Object characters (we can add more, this is just a very basic default)
     public characters(String charName,int strength,int charHP,int stealth,int psych,int intel){
         name = charName;
