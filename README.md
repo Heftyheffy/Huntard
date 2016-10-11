@@ -97,3 +97,12 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - Jeffrey: 1,7, 8 
 - Robert: 4
 
+# Document 5: 12:54PM (Oct. 11, 2016)
+- Title page
+- TAKE ALL RATIONALE AND PUT IN ONE DOCUMENT
+- Update RTM
+- Update WSD
+- update Gantt Chart
+- Dictionary
+
+
