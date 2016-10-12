@@ -11,9 +11,14 @@ public class Huntard extends JFrame{
     JLabel title, gorilla;
     JButton start, load, options, exit;
     JPanel midPanel, lPanel, rPanel, titlePanel, mainPanel;
-    ImageIcon image;    
+    ImageIcon image;
+    int count = 0;
+    Color color1, color2;    
 
-    public Huntard(){	
+    public Huntard(){
+	color1 = new Color(220,0,0);
+	color2 = new Color(130,0,0);
+	
 	//initialize panels
 	lPanel = new JPanel();
 	rPanel = new JPanel();
@@ -27,20 +32,20 @@ public class Huntard extends JFrame{
 	title.setForeground(Color.black);	        
 	titlePanel.add(title);	        
 	
-	titlePanel.setBackground(new Color(220,0,0));        
+	titlePanel.setBackground(color1);        
 
 	//Configures look of the left gorilla button/panel
 	image = new ImageIcon("gorillaL.png");
 	gorilla = new JLabel(image);        
-	gorilla.setBackground(new Color(220,0,0));
-        lPanel.setBackground(new Color(220,0,0));	
+	gorilla.setBackground(color1);
+        lPanel.setBackground(color1);	
 	lPanel.add(gorilla);
 
 	//Configures look of the right gorilla button/panel
 	image = new ImageIcon("gorillaR.png");
 	gorilla = new JLabel(image);        
-	gorilla.setBackground(new Color(220,0,0));
-        rPanel.setBackground(new Color(220,0,0));        
+	gorilla.setBackground(color1);
+        rPanel.setBackground(color1);        
 	rPanel.add(gorilla);
 
 	//configures buttons
@@ -48,7 +53,7 @@ public class Huntard extends JFrame{
 	start.setPreferredSize(new Dimension(400, 100));
 	start.setBackground(Color.black);
 	start.setForeground(Color.white);
-	start.setRolloverEnabled(false);
+	start.setRolloverEnabled(false);        
 	start.addActionListener(new ButtonListener());
 	
 	load = new JButton("Load Game");
@@ -77,7 +82,7 @@ public class Huntard extends JFrame{
 	midPanel.add(load);
 	midPanel.add(options);
 	midPanel.add(exit);
-	midPanel.setBackground(new Color(220,0,0));
+	midPanel.setBackground(color1);
 
 	//add Panels
 	mainPanel.add(titlePanel, BorderLayout.NORTH);
@@ -87,10 +92,11 @@ public class Huntard extends JFrame{
 
 	//setup frame
 	add(mainPanel);
-	setExtendedState(JFrame.MAXIMIZED_BOTH);
-	setUndecorated(true);		
+        setSize(1200, 700);
+	setResizable(false);	
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
-	setVisible(true);
+	setLocationRelativeTo(null);
+	setVisible(true);	
     }
 
     class ButtonListener implements ActionListener{
@@ -104,6 +110,7 @@ public class Huntard extends JFrame{
 	        midPanel.setLayout(new GridLayout(1,4));
 		getSelectScreen();
 		mainPanel.updateUI();
+		JOptionPane.showMessageDialog(frame, "Choose 3 Characters", "Alert", JOptionPane.PLAIN_MESSAGE);
 	    }
 	    else if(cmd == "Exit Game"){
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -130,10 +137,15 @@ public class Huntard extends JFrame{
 	joanne.addActionListener(new CharacterListener());
 	joe = new JButton(new ImageIcon("joe.png"));
 	joe.addActionListener(new CharacterListener());
-	steve.setBackground(new Color(220,0,0));
-	larry.setBackground(new Color(130,0,0));
-	joanne.setBackground(new Color(130,0,0));
-	joe.setBackground(new Color(220,0,0));
+	
+	steve.setBackground(color1);
+	larry.setBackground(color2);
+	joanne.setBackground(color2);
+	joe.setBackground(color1);
+	steve.setFocusPainted(false);
+	larry.setFocusPainted(false);
+	joanne.setFocusPainted(false);
+	joe.setFocusPainted(false);
 
 	//creates character objects (name, strength, stealth, intellignce, psychology)
 	charSteve = new Character("Steve", 3, 1, 0, 2);
@@ -150,6 +162,11 @@ public class Huntard extends JFrame{
 	lArea.setPreferredSize(new Dimension(150, 150));
 	jnArea.setPreferredSize(new Dimension(150, 150));
 	jArea.setPreferredSize(new Dimension(150, 150));
+	sArea.setEditable(false);
+	lArea.setEditable(false);
+	jnArea.setEditable(false);
+	jArea.setEditable(false);
+	
 
 	//text area font and color scheme
 	sArea.setFont(new Font(Font.SERIF, Font.BOLD, 20));
@@ -184,9 +201,80 @@ public class Huntard extends JFrame{
 	mainPanel.add(titlePanel, BorderLayout.SOUTH);
     }
 
+
+    ArrayList<Character> chars = new ArrayList<Character>();
+
     class CharacterListener implements ActionListener{
 	public void actionPerformed(ActionEvent evt){
+	    JButton b = (JButton)evt.getSource();
+	    ImageIcon i = (ImageIcon)b.getIcon();
+	    String desc = i.getDescription();
+	    
+	    if(desc == "steve.png"){
+		if(b.getBackground() == color1){
+		    b.setBackground(Color.white);
+		    chars.add(charSteve);
+		    count++;
+		}
+		else{
+		    b.setBackground(color1);
+		    count--;
+		    chars.remove(charSteve);
+		}
+	    }
+	    else if(desc == "larry.png"){
+		if(b.getBackground() == color2){
+		    b.setBackground(Color.white);
+		    chars.add(charLarry);
+		    count++;
+		}
+		else{
+		    b.setBackground(color2);
+		    count--;
+		    chars.remove(charLarry);
+		}
+		
+	    }
+	    else if(desc == "joanne.png"){
+		if(b.getBackground() == color2){
+		    b.setBackground(Color.white);
+		    chars.add(charJoanne);
+		    count++;
+		}
+		else{
+		    b.setBackground(color2);
+		    count--;
+		    chars.remove(charJoanne);
+		}
 
+	    }
+	    else{
+		if(b.getBackground() == color1){
+		    b.setBackground(Color.white);
+		    chars.add(charJoe);
+		    count++;
+		}
+		else{
+		    b.setBackground(color1);
+		    count--;
+		    chars.remove(charJoe);
+		}
+	    }
+	    
+	    if(count == 3){
+		int choice = JOptionPane.showConfirmDialog(frame, "Are you satisfied with your player choice?", "Alert", JOptionPane.YES_NO_OPTION);
+		if(choice==1){
+		    count=0;
+		    steve.setBackground(color1);
+		    larry.setBackground(color2);
+		    joanne.setBackground(color2);
+		    joe.setBackground(color1);
+		}
+		if(choice==0){
+		    frame.dispose();
+		    GameStart start = new GameStart(chars);
+		}
+	    }
 	}
     }
 
