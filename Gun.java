@@ -41,6 +41,11 @@ public class Gun{
     public String getName(){
     	return name;
     }
+    public boolean canFire(){
+        if(durability>0)
+            return true;
+        return false;
+    }
 }
 /*I havent put any functions have to deal with ammo because the way durability will work would make managing ammo ridiculous. As is currently all guns will have ammo but break after
 they have exhausted all of their uses as described in the original comment at the top. Since guns are acutally going to be used in the minigames I think the best way to manage them 
