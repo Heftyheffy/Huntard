@@ -11,6 +11,7 @@ import java.io.*;
 import javax.swing.*;
 
 //classes and interfaces that deal with editable and noneditable text components
+import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicButtonListener;
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 import javax.swing.text.*;
@@ -26,30 +27,39 @@ import java.awt.image.*;
 
 public class huntardMainScreen extends JFrame{
 
-    JLabel title;
+    JLabel title, dailyDecision;
     JButton character, activites, items, radio;
     JPanel leftPanel, centerPanel, rightPanel, topPanel, bottomPanel, titlePanel, mainPanel;
     ImageIcon image;
     Color color1, color2;
 
-    public huntardMainScreen(){
+    //Characters from ArrayList
+    ArrayList<Characters> chars;
+
+    public huntardMainScreen(ArrayList<Characters> c){
         color1 = new Color(193, 189, 189);
         color2 = new Color(124, 197, 234);
 
-        File file = new File("../img/house.jpg");
-        BufferedImage image = null;
-        try{
-            image = ImageIO.read(file);
+        //getting characters from startscreen pass to this class
+        this.chars = c;
 
-        }
-        catch(Exception e){
-            System.out.println("error");
-        }
+        /*
+            For the sake of testing: I have created set characters and add them to ArrayList<Characters>
+            I would have to delete these for the actually working program.
 
-        setContentPane(new BackgroundImage(image));
+            Remember: To go back to GameStart in ContinueStory method to uncomment!
+         */
+        Characters charSteve = new Characters("Steve", 3, 1, 0, 2);
+        Characters charLarry = new Characters("Larry", 1, 2, 3, 0);
+        Characters charJoe = new Characters("Joe", 0, 3, 2, 1);
+
+        chars.add(charSteve);
+        chars.add(charLarry);
+        chars.add(charJoe);
+
 
         //initialize panels
-        leftPanel = new JPanel(new GridLayout(3, 1)); //3 rows, 1 column for characters, activities, items
+        leftPanel = new JPanel(); //3 rows, 1 column for characters, activities, items
         rightPanel = new JPanel();
         centerPanel = new JPanel();
         topPanel = new JPanel();
@@ -60,7 +70,7 @@ public class huntardMainScreen extends JFrame{
 
 
         //configures titlePanel/title
-        title = new JLabel("Main Screen");
+        title = new JLabel("HUNTARD: REVENGE OF HARAMBE");
         title.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 50));
         title.setForeground(Color.cyan);
         titlePanel.add(title);
@@ -91,25 +101,36 @@ public class huntardMainScreen extends JFrame{
 
         radio = new JButton("Radio");
         radio.setPreferredSize(new Dimension(50, 50));
-        //radio.setBackground(Color.MAGENTA);
         radio.setForeground(Color.BLACK);
         radio.setRolloverEnabled(false);
         radio.addActionListener(new ButtonListener());
 
+        //configure text area -- Daily Decision
+        dailyDecision = new JLabel("Daily Decision");
+        dailyDecision.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40));
+        dailyDecision.setForeground(Color.blue);
+
 
         //add buttons to leftPanel
+        leftPanel = new JPanel(new GridLayout(3, 1)); //3 rows, 1 column for characters, activities, items
         leftPanel.add(character);
         leftPanel.add(activites);
         leftPanel.add(items);
         leftPanel.setBackground(Color.white);
 
+        //add radio button to right panel
         rightPanel.add(radio);
         rightPanel.setBackground(color1);
+
+        //add daily decision panel
+        centerPanel.add(dailyDecision);
+        centerPanel.setBackground(Color.gray);
 
         //add panels
         mainPanel.add(titlePanel, BorderLayout.NORTH);
         mainPanel.add(leftPanel, BorderLayout.WEST);
         mainPanel.add(rightPanel, BorderLayout.EAST);
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
 
         //setup frame
         add(mainPanel);
@@ -123,12 +144,13 @@ public class huntardMainScreen extends JFrame{
     class ButtonListener implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             String cmd = evt.getActionCommand();
-            if(cmd == "Character"){
+            if(cmd.equals("Character")){
                 mainPanel.removeAll();
                 leftPanel.removeAll();
+                centerPanel.removeAll();
                 leftPanel.setBackground(color1);
                 centerPanel.setLayout(new GridLayout(1, 3));
-                choosenCharacters();
+                choosenCharacters(chars);
                 mainPanel.updateUI();
             }
         }
@@ -136,17 +158,19 @@ public class huntardMainScreen extends JFrame{
     }
 
     //Character Buttons
+    //Sorry, this might confuse you...
     JButton choseChar1, choseChar2, choseChar3;
-    Characters charSteve, charLarry, charJoe;
+    String chosenChar1, chosenChar2, chosenChar3;
 
-    ArrayList<Characters> chars = new ArrayList<Characters>();
+    public void choosenCharacters(ArrayList<Characters> chars){
+        chosenChar1 = chars.get(0).getName();
+        chosenChar2 = chars.get(1).getName();
+        chosenChar3 = chars.get(2).getName();
+        //the button name will have selected characters from user picked
+        choseChar1 = new JButton(chosenChar1);
+        choseChar2 = new JButton(chosenChar2);
+        choseChar3 = new JButton(chosenChar3);
 
-
-
-    public void choosenCharacters(){
-        choseChar1 = new JButton("Steve");
-        choseChar2 = new JButton("Larry");
-        choseChar3 = new JButton("Joe");
         //Need to add buttons
         choseChar1.addActionListener(new CharacterListener());
         choseChar2.addActionListener(new CharacterListener());
@@ -156,15 +180,6 @@ public class huntardMainScreen extends JFrame{
         choseChar2.setBackground(Color.GRAY);
         choseChar3.setBackground(Color.GRAY);
 
-        charSteve = new Characters("Steve", 3, 1, 0, 2);
-        charLarry = new Characters("Larry", 1, 2, 3, 0);
-        charJoe = new Characters("Joe", 0, 3, 2, 1);
-
-        //added to ArrayList
-        chars.add(charSteve);
-        chars.add(charLarry);
-        chars.add(charJoe);
-
         centerPanel.add(choseChar1);
         centerPanel.add(choseChar2);
         centerPanel.add(choseChar3);
@@ -173,80 +188,163 @@ public class huntardMainScreen extends JFrame{
     }
 
     //text are for character info
-    JTextArea steveText, larryText, joeText, steveSummaryText;
+    JTextArea char1Text, char2Text, char3Text, char1SummaryText, char2SummaryText, char3SummaryText;
 
     class CharacterListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //Initailizing Text Area
-            steveText = new JTextArea();
-            larryText = new JTextArea();
-            joeText = new JTextArea();
+            char1Text =  new JTextArea();
+            char2Text = new JTextArea();
+            char3Text = new JTextArea();
 
-            steveSummaryText = new JTextArea();
-
+            char1SummaryText = new JTextArea();
+            char2SummaryText = new JTextArea();
+            char3SummaryText = new JTextArea();
 
             //Giving dimenison to text area
-            steveText.setPreferredSize(new Dimension(50, 50));
-            larryText.setPreferredSize(new Dimension(150, 150));
-            joeText.setPreferredSize(new Dimension(150, 150));
+            char1Text.setPreferredSize(new Dimension(50, 50));
+            char2Text.setPreferredSize(new Dimension(150, 150));
+            char3Text.setPreferredSize(new Dimension(150, 150));
 
-            steveSummaryText.setPreferredSize(new Dimension(150, 200));
+            char1SummaryText.setPreferredSize(new Dimension(150, 200));
+            char2SummaryText.setPreferredSize(new Dimension(150, 200));
+            char3SummaryText.setPreferredSize(new Dimension(150, 200));
 
-            steveText.setEditable(false);
-            larryText.setEditable(false);
-            joeText.setEditable(false);
+            char1Text.setEditable(false);
+            char2Text.setEditable(false);
+            char3Text.setEditable(false);
 
-            steveSummaryText.setEditable(false);
+            char1SummaryText.setEditable(false);
+            char2SummaryText.setEditable(false);
+            char3SummaryText.setEditable(false);
 
             //each text area are giving Font and size
-            steveText.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
-            larryText.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
-            joeText.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
+            char1Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
+            char2Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
+            char3Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
 
-            steveSummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
+            char1SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
+            char2SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
+            char3SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
 
             //setting background white, foreground black
-            steveText.setBackground(Color.white);
-            larryText.setBackground(Color.white);
-            joeText.setBackground(Color.white);
+            char1Text.setBackground(Color.white);
+            char2Text.setBackground(Color.white);
+            char3Text.setBackground(Color.white);
 
-            steveSummaryText.setBackground(Color.white);
+            char1SummaryText.setBackground(Color.white);
+            char2SummaryText.setBackground(Color.white);
+            char3SummaryText.setBackground(Color.white);
 
-            steveText.setForeground(Color.black);
-            larryText.setForeground(Color.black);
-            joeText.setForeground(Color.black);
+            char1Text.setForeground(Color.black);
+            char2Text.setForeground(Color.black);
+            char3Text.setForeground(Color.black);
 
-            steveSummaryText.setForeground(Color.black);
+            char1SummaryText.setForeground(Color.black);
+            char2SummaryText.setForeground(Color.black);
+            char3SummaryText.setForeground(Color.black);
+
 
             //setting text from ArrayList -- note that I have preset the characters in giving orders.
-            steveText.setText(chars.get(0).toString());
-            larryText.setText(chars.get(1).toString());
-            joeText.setText(chars.get(2).toString());
+            char1Text.setText(chars.get(0).toString());
+            char2Text.setText(chars.get(1).toString());
+            char3Text.setText(chars.get(2).toString());
 
-            steveSummaryText.setText("This is Steve. There will be something to generator different quotes \nfor him ");
             String cmd = e.getActionCommand();
-            if(cmd.equals(chars.get(0).getName())){
+
+            if(cmd.equals(chosenChar1)){
                 centerPanel.removeAll();
                 centerPanel.updateUI();
 
-                JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, steveText, steveSummaryText);
+                char1SummaryText.setText(generateTalk(chosenChar1));
+
+                JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, char1Text, char1SummaryText);
                 mainPanel.add(splitPane, BorderLayout.CENTER);
+            } else if(cmd.equals(chosenChar2)){
+                centerPanel.removeAll();
+                centerPanel.updateUI();
 
+                char2SummaryText.setText(generateTalk(chosenChar2));
 
+                JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char2Text, char2SummaryText);
+                mainPanel.add(splitPane, BorderLayout.CENTER);
+            } else if(cmd.equals(chosenChar3)){
+                centerPanel.removeAll();
+                centerPanel.updateUI();
 
+                char3SummaryText.setText(generateTalk(chosenChar3));
 
-
-
-
+                JSplitPane splitePane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char3Text, char3SummaryText);
+                mainPanel.add(splitePane, BorderLayout.CENTER);
+            } else {
+                System.out.println("Error selecting a character");
             }
         }
 
     }
 
 
+
+    Random randNumber = new Random();
+    public String generateTalk(String chars){
+       String speech;
+
+        if(chars.equals("Steve")){
+
+            int xNumber = randNumber.nextInt(3);
+
+            switch (xNumber){
+                case 0: speech = "Eerrgh, I feel bad killing Harambe. I should not have done it.\nBut I had to..."; break;
+                case 1: speech = "hey hey hye it's time to make some craz\nzzzz money are ya ready? Booom there it goes"; break;
+                case 2: speech = ("we have died of dysentery"); break;
+                case 3: speech = ("I have started this mess...\n It was my fault. And all the cake is gone. Don't you care?"); break;
+                default: speech = ("I wonder if you can even get this error?"); break;
+
+            }
+            return speech;
+
+        } else if(chars.equals("Larry")){
+            int number = randNumber.nextInt(3);
+
+            switch (number){
+                case 0: speech = ("Hey STEVE, wake me up when you need me!"); break;
+                case 1: speech = ("Please do not be humored by my texts...."); break;
+                case 2: speech = ("I need to do a line ASAP"); break;
+                case 3: speech = ("Please help us, we are in need. Please!"); break;
+                default: speech = ("This is larry breaking point"); break;
+
+            }
+            return speech;
+        } else if(chars.equals("Joe")){
+            int number = randNumber.nextInt(3);
+            switch (number){
+                case 0: speech =("Like... Geezh, so many aggressive. ummn, apes?"); break;
+                case 1: speech =("Steveeee, i do not know man. \nThere are so many of usesless items. Oh hey, what does this do?"); break;
+                case 2: speech =("I wonder how everyone in this settlement is doing?\nHope they are not getting my food that Scooby made"); break;
+                case 3: speech =("I am joe. I am a wilderness explorer. "); break;
+                default: speech =("I really hope no one is really reading this shit."); break;
+            }
+            return speech;
+        } else if(chars.equals("Joanne")){
+            int number = randNumber.nextInt(3);
+            switch (number){
+                case 1: speech = ("They ripped me off from Future-Drama, I am not Joanne.\nAnd my mental fortitude is great!"); break;
+                case 2: speech = ("I have been on this place for a long time.\nI have fought Gorillas."); break;
+                case 3: speech = ("*awwwwwahhh* oh nevermind"); break;
+                case 4: speech = ("Hey, what are you doing there? Aren't you suppose to be in the closet?"); break;
+                default: speech = ("I am hoping this else-if statement would break"); break;
+            }
+            return speech;
+        } else {
+                System.out.println("Error in generateTalk");
+            }
+        return "";
+    }
+
+
     public static void main(String[] args){
 
-        huntardMainScreen frame = new huntardMainScreen();
+        huntardMainScreen frame = new huntardMainScreen(new ArrayList<Characters>());
     }
 
 }
