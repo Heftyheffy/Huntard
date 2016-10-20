@@ -120,6 +120,7 @@ public class JeffStartScreen extends JFrame{
 
         //add daily decision panel        
         centerPanel.setOpaque(false);
+	centerPanel.setBorder(new EmptyBorder(100,100,100,100));        
 
         //add panels to main panel
         mainPanel.add(titlePanel, BorderLayout.NORTH);
