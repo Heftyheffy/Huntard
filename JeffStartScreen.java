@@ -26,18 +26,18 @@ import javax.imageio.*;
 import java.awt.image.*;
 import javax.swing.border.*;
 
-public class huntardMainScreen extends JFrame{
+public class JeffStartScreen extends JFrame{
 
-    JLabel title, dailyDecision;
+    JLabel title;
     JButton character, activites, items, radio, backButton;
-    JPanel leftPanel, centerPanel, rightPanel, topPanel, bottomPanel, titlePanel, mainPanel;
+    JPanel leftPanel, centerPanel, rightPanel,  bottomPanel, titlePanel, mainPanel;
     ImageIcon image;
     Color color1, color2;
 
     //Characters from ArrayList
-    ArrayList<Characters> chars;
+    ArrayList<Character> chars;
 
-    public huntardMainScreen(ArrayList<Characters> c){
+    public JeffStartScreen(ArrayList<Character> c){
         color1 = new Color(193, 189, 189);
         color2 = new Color(124, 197, 234);
 
@@ -50,20 +50,18 @@ public class huntardMainScreen extends JFrame{
 
             Remember: To go back to GameStart in ContinueStory method to uncomment!
          */
-        Characters charSteve = new Characters("Steve", 3, 1, 0, 2);
-        Characters charLarry = new Characters("Larry", 1, 2, 3, 0);
-        Characters charJoe = new Characters("Joe", 0, 3, 2, 1);
+        Character charSteve = new Character("Steve", 3, 1, 0, 2, null, null);
+        Character charLarry = new Character("Larry", 1, 2, 3, 0, null, null);
+        Character charJoe = new Character("Joe", 0, 3, 2, 1, null, null);
 
         chars.add(charSteve);
         chars.add(charLarry);
         chars.add(charJoe);
 
 
-        //initialize panels
-        leftPanel = new JPanel();
+        //initialize panels        
         rightPanel = new JPanel();
-        centerPanel = new JPanel();
-        topPanel = new JPanel();
+        centerPanel = new JPanel();        
         bottomPanel = new JPanel();
 
         titlePanel = new JPanel();
@@ -104,30 +102,24 @@ public class huntardMainScreen extends JFrame{
         radio.setPreferredSize(new Dimension(50, 50));
         radio.setForeground(Color.BLACK);
         radio.setRolloverEnabled(false);
-        radio.addActionListener(new ButtonListener());
+        radio.addActionListener(new ButtonListener());        
 
-        //configure text area -- Daily Decision
-        dailyDecision = new JLabel("Daily Decision");
-        dailyDecision.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40));
-        dailyDecision.setForeground(Color.blue);
-
-        dailyDecision.setBorder(new EmptyBorder(100,100,100,100));
-
+	backButton = new JButton("Back");
+	backButton.addActionListener(new ButtonListener());
 
         //add buttons to leftPanel
         leftPanel = new JPanel(new GridLayout(3, 1)); //3 rows, 1 column for characters, activities, items
         leftPanel.add(character);
         leftPanel.add(activites);
         leftPanel.add(items);
-        leftPanel.setBackground(Color.white);
+        leftPanel.setOpaque(false);
 
         //add radio button to right panel
         rightPanel.add(radio);
         rightPanel.setBackground(color1);
 
-        //add daily decision panel
-        centerPanel.add(dailyDecision);
-        centerPanel.setBackground(Color.gray);
+        //add daily decision panel        
+        centerPanel.setOpaque(false);
 
         //add panels to main panel
         mainPanel.add(titlePanel, BorderLayout.NORTH);
@@ -145,25 +137,26 @@ public class huntardMainScreen extends JFrame{
     }
 
     //Method to remove all panels
-    public void removeAllPanels(){
+    public void removePanels(){
         mainPanel.removeAll();
         leftPanel.removeAll();
-        rightPanel.removeAll();
-        centerPanel.removeAll();
-        topPanel.removeAll();
-        bottomPanel.removeAll();
+        titlePanel.removeAll();
+        centerPanel.removeAll();        
     }
 
     class ButtonListener implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             String cmd = evt.getActionCommand();
             if(cmd.equals("Character")){
-                removeAllPanels();
-                leftPanel.setBackground(color1);
+		removePanels();                
                 centerPanel.setLayout(new GridLayout(1, 3));
-                choosenCharacters(chars);
+                chosenCharacters(chars);
                 mainPanel.updateUI();
             }
+	    else if(cmd.equals("Back")){
+		paintMain();
+	    }
+	    
         }
 
     }
@@ -174,7 +167,7 @@ public class huntardMainScreen extends JFrame{
     String chosenChar1, chosenChar2, chosenChar3;
     String infoChar1, infoChar2, infoChar3;
 
-    public void choosenCharacters(ArrayList<Characters> chars){
+    public void chosenCharacters(ArrayList<Character> chars){
         chosenChar1 = chars.get(0).getName();
         chosenChar2 = chars.get(1).getName();
         chosenChar3 = chars.get(2).getName();
@@ -183,6 +176,7 @@ public class huntardMainScreen extends JFrame{
         infoChar1 = chars.get(0).toString();
         infoChar2 = chars.get(1).toString();
         infoChar3 = chars.get(2).toString();
+	
         //the button name will have selected characters from user picked
         choseChar1 = new JButton(chosenChar1);
         choseChar2 = new JButton(chosenChar2);
@@ -200,6 +194,9 @@ public class huntardMainScreen extends JFrame{
         centerPanel.add(choseChar1);
         centerPanel.add(choseChar2);
         centerPanel.add(choseChar3);
+	
+	titlePanel.add(backButton);
+	mainPanel.add(titlePanel, BorderLayout.NORTH);		      
         mainPanel.add(centerPanel, BorderLayout.CENTER);
 
     }
@@ -327,10 +324,31 @@ public class huntardMainScreen extends JFrame{
         return "";
     }
 
+    public void paintMain(){
+	mainPanel.removeAll();
+	
+	titlePanel.removeAll();
+	titlePanel.add(title);
+	leftPanel.removeAll();
+	leftPanel.setLayout(new GridLayout(3,1));
+	leftPanel.add(character);
+	leftPanel.add(activites);
+	leftPanel.add(items);
+	leftPanel.setOpaque(false);
 
+	centerPanel.removeAll();
+	mainPanel.add(titlePanel, BorderLayout.NORTH);
+	mainPanel.add(leftPanel, BorderLayout.WEST);
+	mainPanel.add(rightPanel, BorderLayout.EAST);
+	mainPanel.add(centerPanel, BorderLayout.CENTER);
+
+	mainPanel.updateUI();
+    }
+
+    static JeffStartScreen frame;
     public static void main(String[] args){
 
-        huntardMainScreen frame = new huntardMainScreen(new ArrayList<Characters>());
+        frame = new JeffStartScreen(new ArrayList<Character>());
     }
 
 }
