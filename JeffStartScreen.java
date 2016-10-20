@@ -24,11 +24,12 @@ import java.awt.event.ActionListener;
 import java.util.EventListener;
 import javax.imageio.*;
 import java.awt.image.*;
+import javax.swing.border.*;
 
 public class huntardMainScreen extends JFrame{
 
     JLabel title, dailyDecision;
-    JButton character, activites, items, radio;
+    JButton character, activites, items, radio, backButton;
     JPanel leftPanel, centerPanel, rightPanel, topPanel, bottomPanel, titlePanel, mainPanel;
     ImageIcon image;
     Color color1, color2;
@@ -59,7 +60,7 @@ public class huntardMainScreen extends JFrame{
 
 
         //initialize panels
-        leftPanel = new JPanel(); //3 rows, 1 column for characters, activities, items
+        leftPanel = new JPanel();
         rightPanel = new JPanel();
         centerPanel = new JPanel();
         topPanel = new JPanel();
@@ -110,6 +111,8 @@ public class huntardMainScreen extends JFrame{
         dailyDecision.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40));
         dailyDecision.setForeground(Color.blue);
 
+        dailyDecision.setBorder(new EmptyBorder(100,100,100,100));
+
 
         //add buttons to leftPanel
         leftPanel = new JPanel(new GridLayout(3, 1)); //3 rows, 1 column for characters, activities, items
@@ -126,7 +129,7 @@ public class huntardMainScreen extends JFrame{
         centerPanel.add(dailyDecision);
         centerPanel.setBackground(Color.gray);
 
-        //add panels
+        //add panels to main panel
         mainPanel.add(titlePanel, BorderLayout.NORTH);
         mainPanel.add(leftPanel, BorderLayout.WEST);
         mainPanel.add(rightPanel, BorderLayout.EAST);
@@ -141,13 +144,21 @@ public class huntardMainScreen extends JFrame{
         setVisible(true);
     }
 
+    //Method to remove all panels
+    public void removeAllPanels(){
+        mainPanel.removeAll();
+        leftPanel.removeAll();
+        rightPanel.removeAll();
+        centerPanel.removeAll();
+        topPanel.removeAll();
+        bottomPanel.removeAll();
+    }
+
     class ButtonListener implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             String cmd = evt.getActionCommand();
             if(cmd.equals("Character")){
-                mainPanel.removeAll();
-                leftPanel.removeAll();
-                centerPanel.removeAll();
+                removeAllPanels();
                 leftPanel.setBackground(color1);
                 centerPanel.setLayout(new GridLayout(1, 3));
                 choosenCharacters(chars);
@@ -161,11 +172,17 @@ public class huntardMainScreen extends JFrame{
     //Sorry, this might confuse you...
     JButton choseChar1, choseChar2, choseChar3;
     String chosenChar1, chosenChar2, chosenChar3;
+    String infoChar1, infoChar2, infoChar3;
 
     public void choosenCharacters(ArrayList<Characters> chars){
         chosenChar1 = chars.get(0).getName();
         chosenChar2 = chars.get(1).getName();
         chosenChar3 = chars.get(2).getName();
+
+        //Retreiving toString from characters
+        infoChar1 = chars.get(0).toString();
+        infoChar2 = chars.get(1).toString();
+        infoChar3 = chars.get(2).toString();
         //the button name will have selected characters from user picked
         choseChar1 = new JButton(chosenChar1);
         choseChar2 = new JButton(chosenChar2);
@@ -188,74 +205,41 @@ public class huntardMainScreen extends JFrame{
     }
 
     //text are for character info
-    JTextArea char1Text, char2Text, char3Text, char1SummaryText, char2SummaryText, char3SummaryText;
+    JTextArea char1Text, char1SummaryText;
 
     class CharacterListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             //Initailizing Text Area
             char1Text =  new JTextArea();
-            char2Text = new JTextArea();
-            char3Text = new JTextArea();
-
             char1SummaryText = new JTextArea();
-            char2SummaryText = new JTextArea();
-            char3SummaryText = new JTextArea();
 
             //Giving dimenison to text area
             char1Text.setPreferredSize(new Dimension(50, 50));
-            char2Text.setPreferredSize(new Dimension(150, 150));
-            char3Text.setPreferredSize(new Dimension(150, 150));
-
             char1SummaryText.setPreferredSize(new Dimension(150, 200));
-            char2SummaryText.setPreferredSize(new Dimension(150, 200));
-            char3SummaryText.setPreferredSize(new Dimension(150, 200));
 
             char1Text.setEditable(false);
-            char2Text.setEditable(false);
-            char3Text.setEditable(false);
-
             char1SummaryText.setEditable(false);
-            char2SummaryText.setEditable(false);
-            char3SummaryText.setEditable(false);
 
             //each text area are giving Font and size
             char1Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
-            char2Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
-            char3Text.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 25));
-
             char1SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
-            char2SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
-            char3SummaryText.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
 
             //setting background white, foreground black
             char1Text.setBackground(Color.white);
-            char2Text.setBackground(Color.white);
-            char3Text.setBackground(Color.white);
-
             char1SummaryText.setBackground(Color.white);
-            char2SummaryText.setBackground(Color.white);
-            char3SummaryText.setBackground(Color.white);
 
             char1Text.setForeground(Color.black);
-            char2Text.setForeground(Color.black);
-            char3Text.setForeground(Color.black);
-
             char1SummaryText.setForeground(Color.black);
-            char2SummaryText.setForeground(Color.black);
-            char3SummaryText.setForeground(Color.black);
-
 
             //setting text from ArrayList -- note that I have preset the characters in giving orders.
-            char1Text.setText(chars.get(0).toString());
-            char2Text.setText(chars.get(1).toString());
-            char3Text.setText(chars.get(2).toString());
-
+            //char1Text.setText(chars.get(0).toString());
             String cmd = e.getActionCommand();
 
             if(cmd.equals(chosenChar1)){
                 centerPanel.removeAll();
                 centerPanel.updateUI();
 
+                char1Text.setText(infoChar1);
                 char1SummaryText.setText(generateTalk(chosenChar1));
 
                 JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, char1Text, char1SummaryText);
@@ -264,17 +248,19 @@ public class huntardMainScreen extends JFrame{
                 centerPanel.removeAll();
                 centerPanel.updateUI();
 
-                char2SummaryText.setText(generateTalk(chosenChar2));
+                char1Text.setText(infoChar2);
+                char1SummaryText.setText(generateTalk(chosenChar2));
 
-                JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char2Text, char2SummaryText);
+                JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char1Text, char1SummaryText);
                 mainPanel.add(splitPane, BorderLayout.CENTER);
             } else if(cmd.equals(chosenChar3)){
                 centerPanel.removeAll();
                 centerPanel.updateUI();
 
-                char3SummaryText.setText(generateTalk(chosenChar3));
+                char1Text.setText(infoChar3);
+                char1SummaryText.setText(generateTalk(chosenChar3));
 
-                JSplitPane splitePane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char3Text, char3SummaryText);
+                JSplitPane splitePane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char1Text, char1SummaryText);
                 mainPanel.add(splitePane, BorderLayout.CENTER);
             } else {
                 System.out.println("Error selecting a character");
