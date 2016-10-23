@@ -4,7 +4,8 @@ import java.lang.*;
 import java.util.*;
 import java.io.*;
 import java.awt.image.*;
-
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Hmg extends Canvas implements Runnable{
 	public static final int width = 400;
@@ -17,20 +18,21 @@ public class Hmg extends Canvas implements Runnable{
 
 	private BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
 	private BufferedImage sSheet = null;
-
-	//TEST TIME*********************************************************************
-	private BufferedImage p1;
-	//TEST TIME*********************************************************************
+	private Hplayer p;
+	private Controller c;
 
 	public void init(){
+		requestFocus();
 		BufferedImageLoader loader = new BufferedImageLoader();
 		try{
 			sSheet = loader.loadImage("spritesheet.png");
 		}catch(IOException e){
 			System.out.println("ya didnt get the sprites lad");
 		}
-		SpriteSheet ss = new SpriteSheet(sSheet);
-		p1 = ss.grabImage(1,1,32,32);
+		addKeyListener(new KeyInput(this));
+		p = new Hplayer(200,200,this);
+		c = new Controller(this);
+		
 	}
 	//the core loop to run the game
 	public void run(){
@@ -66,7 +68,8 @@ public class Hmg extends Canvas implements Runnable{
 			stop();	
 	}
 	private void tick(){
-
+		p.tick();
+		c.tick();
 	}
 	//method for making the pictures on the screen woooooo!!@$@#!$!@$
 	private void render(){
@@ -79,7 +82,8 @@ public class Hmg extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		//Start loading graphics
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-		g.drawImage(p1,100,100,this);
+		p.render(g);
+		c.render(g);
 		//Stop loading graphics
 		g.dispose();
 		bs.show();
@@ -106,6 +110,33 @@ public class Hmg extends Canvas implements Runnable{
 		}
 		System.exit(1);
 	}
+	//Overloaded key methods wew
+		public void keyPressed(KeyEvent e){
+			int key = e.getKeyCode();
+			if(key == KeyEvent.VK_UP){
+				p.setVelY(-5);
+			}else if(key == KeyEvent.VK_DOWN){
+				p.setVelY(5);
+			}else if(key == KeyEvent.VK_LEFT){
+				p.setVelX(-5);
+			}else if(key == KeyEvent.VK_RIGHT){
+				p.setVelX(5);
+			}else if (key ==KeyEvent.VK_SPACE){
+				c.addBullet(new Bullet(p.getX(), p.getY(), this));
+			}
+		}
+		public void keyReleased(KeyEvent e){
+			int key = e.getKeyCode();
+			if(key == KeyEvent.VK_UP){
+				p.setVelY(0);
+			}else if(key == KeyEvent.VK_DOWN){
+				p.setVelY(0);
+			}else if(key == KeyEvent.VK_LEFT){
+				p.setVelX(0);
+			}else if(key == KeyEvent.VK_RIGHT){
+				p.setVelX(0);
+			}
+		}
 	//temporary main method
 	public static void main(String args[]){
 		Hmg game = new Hmg();
@@ -122,4 +153,7 @@ public class Hmg extends Canvas implements Runnable{
 		frame.setVisible(true);
 		game.start();
 	}	
+	public BufferedImage getSS(){
+		return sSheet;
+	}
 }
