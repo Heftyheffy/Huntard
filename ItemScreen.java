@@ -98,21 +98,33 @@ public class ItemScreen extends JFrame{
 		setLocationRelativeTo(null);
 		setVisible(true);
 
-	/*
-	public void createPanels(ArrayList itemList){
+}
+	/*public static void createPanels(){
 		for (Item anItem : itemList) {
 			tempLabel = new JLabel(anItem.name);
-			tempIcon = new JLabel(anItem.smallIcon);
+			tempIcon = new JLabel(anItem.icon);
 			tempPanel.add(tempLayout, BorderLayout.NORTH);
 			tempPanel.add(tempIcon, BorderLayout.CENTER);
 			tempPanel.add(description1, BorderLayout.SOUTH);
 			midPanel.add(tempPanel);
 		}
-	}
-	*/
-}
+	}*/
+	
+
 	static ItemScreen frame;
     public static void main(String[] args){
-	frame = new ItemScreen();
+    	ImageIcon gunImage, mapImage;
+    	gunImage = new ImageIcon("gun1.png");
+    	gunItem = new Item("gun", gunImage);
+    	mapImage = new ImageIcon("mapIcon.png");
+    	mapItem = new Item("map", mapImage);
+    	ArrayList<Item> items = new ArrayList<Item>();
+    	items.add(gunItem);
+    	items.add(mapItem);
+    	for (Item i : items) {
+    		System.out.println(i.name);
+    	}
+
+		frame = new ItemScreen();
     }
 }
