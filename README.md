@@ -105,4 +105,16 @@ JK: I completed WSD chart, introduction assignment 1 and team contract.
 - update Gantt Chart
 - Dictionary
 
+# Document 6: 1:49PM
+- Title page: ROBERT
+- RTM: HUNTER
+- Source Code on disk: ROBERT
+- Test cases used to test software: EACH PERSON
+- COCOMO: CHASE
+- Update WSD: JEFF
+- Update Gantt Chart: JEFF
+- Dictionary: NONE
+- Rationale for test cases and type used: JAMES & ROBERT
+- One test case per person (=5)
+
 

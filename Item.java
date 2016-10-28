@@ -7,13 +7,23 @@
     The first line of all the constructors that inherit this class will be super(name) with name being the name of the item.
  */
 
+import java.awt.*;
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.text.*;
+import java.awt.event.*;
+
 public class Item {
 
     // this field will be the name of the item
     private String name;
+    private ImageIcon smallIcon;
+    private String description;
+
 
     //Constructor only accepting one parameter, because it all that the classes will inherit
-    public Item(String x){
+    public Item(String theName, ImageIcon image1, ImageIcon image2){
         name = x;
     }
 
@@ -21,4 +31,17 @@ public class Item {
     public String getName(){
         return name;
     }
+
+    public void setDescription(String desc){
+        description = desc;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public ImageIcon getSmallIcon(){
+        return smallIcon;
+    }
+
 }
