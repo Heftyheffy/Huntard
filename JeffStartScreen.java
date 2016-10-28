@@ -33,6 +33,7 @@ public class JeffStartScreen extends JFrame{
     JPanel leftPanel, centerPanel, rightPanel,  bottomPanel, titlePanel, mainPanel;
     ImageIcon image;
     Color color1, color2;
+    ArrayList<Item> itemArray;
 
     //Characters from ArrayList
     ArrayList<Character> chars;
@@ -50,13 +51,14 @@ public class JeffStartScreen extends JFrame{
 
             Remember: To go back to GameStart in ContinueStory method to uncomment!
          */
-        Character charSteve = new Character("Steve", 3, 1, 0, 2, null, null);
-        Character charLarry = new Character("Larry", 1, 2, 3, 0, null, null);
-        Character charJoe = new Character("Joe", 0, 3, 2, 1, null, null);
+        Character charSteve = new Character("Steve", 3, 1, 0, 2, null, new ImageIcon("sIcon.png"));
+        Character charLarry = new Character("Larry", 1, 2, 3, 0, null, new ImageIcon("lIcon.png"));
+        Character charJoe = new Character("Joe", 0, 3, 2, 1, null, new ImageIcon("jIcon.png"));
 
         chars.add(charSteve);
         chars.add(charLarry);
         chars.add(charJoe);
+	chars.add(new Character("Joanne", 2, 0, 1, 3, null, new ImageIcon("jnIcon.png")));
 
 
         //initialize panels        
@@ -120,14 +122,22 @@ public class JeffStartScreen extends JFrame{
 
         //add daily decision panel        
         centerPanel.setOpaque(false);
-	centerPanel.setBorder(new EmptyBorder(100,100,100,100));        
+	centerPanel.setBorder(new EmptyBorder(50, 50, 50, 50));
+
+	itemArray = new ArrayList<Item>();	
+	itemArray.add(new Resource("Food", new ImageIcon("foodIcon.png"), null, 2));
+	itemArray.add(new Resource("Water", new ImageIcon("waterIcon.png"), null, 2));        
+	itemArray.add(new Item("Map", new ImageIcon("mapIcon.png"),  null));
+	itemArray.add(new Item("Gun1", new ImageIcon("gunIcon1.png"), null));
+	itemArray.add(new Item("Gun3", new ImageIcon("gunIcon3.png"), null));
+	decision();       
 
         //add panels to main panel
         mainPanel.add(titlePanel, BorderLayout.NORTH);
         mainPanel.add(leftPanel, BorderLayout.WEST);
         mainPanel.add(rightPanel, BorderLayout.EAST);
         mainPanel.add(centerPanel, BorderLayout.CENTER);
-
+	
         //setup frame
         add(mainPanel);
         setSize(1200, 700);
@@ -344,6 +354,12 @@ public class JeffStartScreen extends JFrame{
 	mainPanel.add(centerPanel, BorderLayout.CENTER);
 
 	mainPanel.updateUI();
+    }
+
+    public void decision(){
+	Decision d = new Decision(null, false, null, null, null);
+        d.generateDecisions();
+	d.getDecision(centerPanel, chars, itemArray); 
     }
 
     static JeffStartScreen frame;
