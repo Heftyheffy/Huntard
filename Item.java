@@ -18,13 +18,15 @@ public class Item {
 
     // this field will be the name of the item
     private String name;
-    private ImageIcon smallIcon;
+    private ImageIcon smallIcon, largeIcon;
     private String description;
 
 
     //Constructor only accepting one parameter, because it all that the classes will inherit
-    public Item(String theName, ImageIcon image1, ImageIcon image2){
-        name = x;
+    public Item(String theName, ImageIcon small, ImageIcon large){
+        name = theName;
+	smallIcon = small;
+	largeIcon = large;
     }
 
     //Getter method: retrieving the name of the item
