@@ -22,8 +22,13 @@ public class Item {
     private String description;
 
 
+    public Item(){
+    /*
+        Default constructor
+     */
+    }
     //Constructor only accepting one parameter, because it all that the classes will inherit
-    public Item(String theName, ImageIcon image1, ImageIcon image2){
+    public Item(String x, ImageIcon image1, ImageIcon image2){
         name = x;
     }
 

@@ -11,7 +11,7 @@ public class ItemScreen extends JFrame{
     ImageIcon image1, image2;
     Color color1, color2;  
 	
-	public ItemScreen(){
+	public ItemScreen(JPanel x){
 		color1 = new Color(220,0,0);
 		color2 = new Color(130,0,0);
 		//itemList = theItems;
@@ -22,6 +22,7 @@ public class ItemScreen extends JFrame{
 		midPanel = new JPanel(new GridLayout(2, 3));
 		titlePanel = new JPanel();
 		mainPanel = new JPanel(new BorderLayout());
+
 
 	//configures titlePanel/title
 		title = new JLabel("Items");
@@ -113,6 +114,7 @@ public class ItemScreen extends JFrame{
 
 	static ItemScreen frame;
     public static void main(String[] args){
+		/*
     	ImageIcon gunImage, mapImage;
     	gunImage = new ImageIcon("gun1.png");
     	gunItem = new Item("gun", gunImage);
@@ -124,7 +126,7 @@ public class ItemScreen extends JFrame{
     	for (Item i : items) {
     		System.out.println(i.name);
     	}
-
+    	*/
 		frame = new ItemScreen();
     }
 }

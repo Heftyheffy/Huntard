@@ -26,7 +26,7 @@ import javax.imageio.*;
 import java.awt.image.*;
 import javax.swing.border.*;
 
-public class huntardMainScreen extends JFrame{
+public class JeffStartScreen extends JFrame{
     //Variables for night and day
     //If player selecting hunting/scav, they could only choose it after compleltion of daily decision
     //After daily decision, it becomes night time
@@ -42,12 +42,18 @@ public class huntardMainScreen extends JFrame{
     Color color1, color2;
 
     //Characters from ArrayList
-    ArrayList<Characters> chars;
+    ArrayList<Character> chars;
     //Creating Resource for Food & Water and Resource extends Item
     //Meaning will have Item attributes
     Resource source;
 
-    public huntardMainScreen(ArrayList<Characters> c){
+    //I need WATER && FOOD amount.
+    int amountWater = 0;
+    int amountFood = 0;
+
+    int amountResource = 0;
+
+    public JeffStartScreen(ArrayList<Character> c){
         color1 = new Color(193, 189, 189);
         color2 = new Color(124, 197, 234);
 
@@ -55,14 +61,14 @@ public class huntardMainScreen extends JFrame{
         this.chars = c;
 
         /*
-            For the sake of testing: I have created set characters and add them to ArrayList<Characters>
+            For the sake of testing: I have created set characters and add them to ArrayList<Character>
             I would have to delete these for the actually working program.
 
             Remember: To go back to GameStart in ContinueStory method to uncomment!
          */
-        Characters charSteve = new Characters("Steve", 3, 1, 0, 2);
-        Characters charLarry = new Characters("Larry", 1, 2, 3, 0);
-        Characters charJoe = new Characters("Joe", 0, 3, 2, 1);
+        Character charSteve = new Character("Steve", 3, 1, 0, 2);
+        Character charLarry = new Character("Larry", 1, 2, 3, 0);
+        Character charJoe = new Character("Joe", 0, 3, 2, 1);
 
         chars.add(charSteve);
         chars.add(charLarry);
@@ -75,8 +81,8 @@ public class huntardMainScreen extends JFrame{
 
              Usage: Resource will tell the player that he/she has that many food and water combined.
          */
-        source = new Resource();
-        generateRandomResources(source);
+
+        generateRandomResources();
 
         /*
             I will be using Item.java file, this file only has the basics such as
@@ -89,12 +95,39 @@ public class huntardMainScreen extends JFrame{
         //Creating an ArrayList for Items to be stored
         ArrayList<Item> listItem = new ArrayList<>();
         //Adding the items that will be giving to the player
-        Item pistol = new Item("Pistol");
-        Item map = new Item("Map");
-        Item food = new Item("Food");
-        Item water = new Item("Water");
+        ImageIcon gun1, gunBig, map1, mapBig;
+        ImageIcon food1, foodBig, water1, waterBig;
 
-        listItem.add()
+        gun1 = new ImageIcon("gun1.png");
+        gunBig = new ImageIcon("gunBig.png");
+        Item pistol = new Item("Pistol", gun1, gunBig);
+
+        map1 = new ImageIcon("mapIcon.png");
+        mapBig = new ImageIcon("mapBig.png");
+        Item map = new Item("Map", map1, mapBig);
+
+        food1 = new ImageIcon("food1.png");
+        foodBig = new ImageIcon("foodBig.png");
+        Item food = new Item("Food", food1, foodBig);
+
+        water1 = new ImageIcon("water1.png");
+        waterBig = new ImageIcon("waterBig.png");
+        Item water = new Item("Water", water1, waterBig);
+
+        //Add items into ArrayList
+        //listItem.add(food);
+        //listItem.add(water);
+        listItem.add(pistol);
+        listItem.add(map);
+
+        //Creating food and water from Resource class
+        Resource resourceFood = new Resource("Food", food1, foodBig, amountFood);
+        Resource resourceWater = new Resource("Water", water1, waterBig, amountWater);
+
+        //Hunter wanted Food in index 0 & Food in index 1
+        ArrayList<Resource> listResource = new ArrayList<>();
+        listResource.add(resourceFood);
+        listResource.add(resourceWater);
 
 
 
@@ -120,20 +153,19 @@ public class huntardMainScreen extends JFrame{
         setVisible(true);
     }
 
-    public void generateRandomResources(Resource source){
+    public void generateRandomResources(){
         Random number = new Random();
 
-        int randomNumber = number.nextInt(4)+1; //the max will be 4 and the min will be 1
+        amountResource = number.nextInt(4)+1; //the max will be 4 and the min will be 1
 
         //the randomNumber will be split by 2 (food and water)
-        int randWater = (int) Math.ceil(randomNumber/2);
+        int randWater = (int) Math.ceil(amountResource/2);
 
-        source.setAmount(randomNumber); //this will set the amount of resource for water
-        source.setResourceWater(randWater);
+        //source.setAmount(amountResource); //this will set the amount
+        amountWater = randWater;
 
-        int randFood = randomNumber - randWater;
-
-        source.setResourceFood(randFood);
+        int randFood = amountResource - randWater;
+        amountFood = randFood;
 
         //creating random numbers for the method to generate
         //rsource - dictates how many resources the player will start off with
@@ -231,12 +263,13 @@ public class huntardMainScreen extends JFrame{
                 removeAllPanels();
                 leftPanel.setBackground(color1);
                 centerPanel.setLayout(new GridLayout(1, 3));
-                choosenCharacters(chars);
+                choosenCharacter(chars);
                 mainPanel.updateUI();
             } else if(cmd.equals("Items")){
                 removeAllPanels();
                 centerPanel.setBackground(color1);
                 //Insert what Robert is working on here....
+                ItemScreen screen = new ItemScreen(centerPanel);
 
             } else if(cmd.equals("Back")){
                 removeAllPanels();
@@ -249,26 +282,73 @@ public class huntardMainScreen extends JFrame{
                 //cannot use resource if resource is 0
                 //if player health is 100, then cannot give more hp
                 //if player thrist is 100, then cannot give more thirst
-                if(source.getAmount() >= 0){
-                    if(cmd.equals("Give Water")){
-                        if(source.getResourceWater() >= 0 && source.getThirst() < 100){
-                            source.setThirst(10);
-                        }else {
-                            //System.out.println("Cannot give water");
-                            warningText.setText("Cannot give water");
+                for(int i = 0; i < chars.size(); i++){
+                    if(chars.get(i).getName().equals("Steve")){
+                        if(amountResource >= 0){
+                            if(cmd.equals("Give Water")){
+                                if(amountWater >= 0 && chars.get(i).getThirst() < 100){
+                                    chars.get(i).setThirst(10);
+                                }else{
+                                    warningText.setText("Cannot give water");
+                                }
+                            }else if(cmd.equals("Give Food")){
+                                if(amountFood >= 0 && chars.get(i).getHP() < 100){
+                                    chars.get(i).setHP(10);
+                                }else {
+                                    warningText.setText("Cannot give food");
+                                }
+                            }
                         }
-                    }else if (cmd.equals("Give Food")){
-                        if(source.getResourceFood() >= 0 && source.getHunger() < 100){
-                            source.setHunger(10);
-                        }else {
-                            //System.out.println("Cannot give food");
-                            warningText.setText(("Cannot give food"));
+                    }else if(chars.get(i).getName().equals("Joe")){
+                        if(amountResource >= 0) {
+                            if (cmd.equals("Give Water")) {
+                                if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
+                                    chars.get(i).setThirst(10);
+                                } else {
+                                    warningText.setText("Cannot give water");
+                                }
+                            } else if (cmd.equals("Give Food")) {
+                                if (amountFood >= 0 && chars.get(i).getHP() < 100) {
+                                    chars.get(i).setHP(10);
+                                } else {
+                                    warningText.setText("Cannot give food");
+                                }
+                            }
+                        }
+                    }else if(chars.get(i).getName().equals("Larry")){
+                        if(amountResource >= 0) {
+                            if (cmd.equals("Give Water")) {
+                                if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
+                                    chars.get(i).setThirst(10);
+                                } else {
+                                    warningText.setText("Cannot give water");
+                                }
+                            } else if (cmd.equals("Give Food")) {
+                                if (amountFood >= 0 && chars.get(i).getHP() < 100) {
+                                    chars.get(i).setHP(10);
+                                } else {
+                                    warningText.setText("Cannot give food");
+                                }
+                            }
+                        }
+                    }else if(chars.get(i).getName().equals("Joanne")){
+                        if(amountResource >= 0) {
+                            if (cmd.equals("Give Water")) {
+                                if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
+                                    chars.get(i).setThirst(10);
+                                } else {
+                                    warningText.setText("Cannot give water");
+                                }
+                            } else if (cmd.equals("Give Food")) {
+                                if (amountFood >= 0 && chars.get(i).getHP() < 100) {
+                                    chars.get(i).setHP(10);
+                                } else {
+                                    warningText.setText("Cannot give food");
+                                }
+                            }
                         }
                     }
-                }else {
-                    System.out.println("Error giving food or water");
                 }
-
             } else if(cmd.equals("Decisions")){
                 //Day will increase because the character has choosen "Decision"
                 //Decision needs to be complete inorder to advance to night
@@ -284,7 +364,7 @@ public class huntardMainScreen extends JFrame{
     String chosenChar1, chosenChar2, chosenChar3;
     String infoChar1, infoChar2, infoChar3;
 
-    public void choosenCharacters(ArrayList<Characters> chars){
+    public void choosenCharacter(ArrayList<Character> chars){
         chosenChar1 = chars.get(0).getName();
         chosenChar2 = chars.get(1).getName();
         chosenChar3 = chars.get(2).getName();
@@ -325,6 +405,11 @@ public class huntardMainScreen extends JFrame{
         mainPanel.add(centerPanel, BorderLayout.CENTER);
         mainPanel.add(topPanel, BorderLayout.NORTH);
 
+    }
+
+    //Print toString for Resource counts
+    public String resourceString(){
+        return "Amount: " + amountResource + "\nAmount water: " + amountWater + "\nAmount food: " + amountFood;
     }
 
     //text are for character info
@@ -404,7 +489,7 @@ public class huntardMainScreen extends JFrame{
                 //selecting toString and adding food & water button
                 char1Text.setText(infoChar1);
                 //Select toString from Resource
-                resoureText.setText(source.toString());
+                resoureText.setText(resourceString());
 
                 //What its going to be displayed when character is selected
                 centerPanel.add(char1Text);
@@ -423,18 +508,36 @@ public class huntardMainScreen extends JFrame{
                 centerPanel.updateUI();
 
                 char1Text.setText(infoChar2);
+
+                resoureText.setText(resourceString());
+
+                centerPanel.add(char1Text);
+                centerPanel.add(waterButton);
+                centerPanel.add(foodButton);
+                centerPanel.add(resoureText);
+                centerPanel.add(warningText);
+
                 char1SummaryText.setText(generateTalk(chosenChar2));
 
-                JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char1Text, char1SummaryText);
+                JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, centerPanel, char1SummaryText);
                 mainPanel.add(splitPane, BorderLayout.CENTER);
             } else if(cmd.equals(chosenChar3)){
                 centerPanel.removeAll();
                 centerPanel.updateUI();
 
                 char1Text.setText(infoChar3);
+
+                resoureText.setText(resourceString());
+
+                centerPanel.add(char1Text);
+                centerPanel.add(waterButton);
+                centerPanel.add(foodButton);
+                centerPanel.add(resoureText);
+                centerPanel.add(warningText);
+
                 char1SummaryText.setText(generateTalk(chosenChar3));
 
-                JSplitPane splitePane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, char1Text, char1SummaryText);
+                JSplitPane splitePane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, centerPanel, char1SummaryText);
                 mainPanel.add(splitePane, BorderLayout.CENTER);
             } else {
                 System.out.println("Error selecting a character");
@@ -504,7 +607,7 @@ public class huntardMainScreen extends JFrame{
 
     public static void main(String[] args){
 
-        huntardMainScreen frame = new huntardMainScreen(new ArrayList<Characters>());
+        JeffStartScreen frame = new JeffStartScreen(new ArrayList<Character>());
     }
 
 }

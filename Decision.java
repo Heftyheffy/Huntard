@@ -73,7 +73,7 @@ public class Decision{
 	else{
 	    ImageIcon[] cBoxIcons = new ImageIcon[chars.size()];	    
 	    for(int i=0; i < chars.size(); i++){
-		cBoxIcons[i] = chars.get(i).getIcon();
+		//cBoxIcons[i] = chars.get(i).getIcon();
 	    }
 	    DefaultComboBoxModel<ImageIcon> icons = new DefaultComboBoxModel<ImageIcon>(cBoxIcons);
 	    cBox = new JComboBox(icons);

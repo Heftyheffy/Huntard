@@ -1,7 +1,7 @@
 //The class for the characters that will be used in the game
 public class Character{
     private String name;
-    private int hp, stamina, strength, stealth, intelligence, psychology;
+    private int hp, thirst, strength, stealth, intelligence, psychology;
   
     //Constructor for each individual Object characters (we can add more, this is just a very basic default)
     public Character(String name, int strength, int stealth, int intelligence, int psychology){
@@ -10,7 +10,7 @@ public class Character{
 	this.stealth = stealth;
 	this.intelligence = intelligence;
 	this.psychology = psychology;
-	stamina = 100;
+	thirst = 100;
 	hp = 100;
     }
   
@@ -25,8 +25,8 @@ public class Character{
     }
   
     //Method to return stamina of character
-    public int getStamina(){
-	return stamina;
+    public int getThirst(){
+	return thirst;
     }
 
     public int getStrength(){
@@ -51,8 +51,8 @@ public class Character{
     }
   
     //Method to set stamina of character
-    public void setStamina(int x){
-	this.stamina = x;
+    public void setThirst(int x){
+	this.thirst = x;
     }
 
     //toString

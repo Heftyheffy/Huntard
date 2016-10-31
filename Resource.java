@@ -4,6 +4,12 @@ import javax.swing.*;
 public class Resource extends Item{    
     private int amount;
 
+    public Resource(){
+    /*
+        Default constructor
+     */
+    }
+
     public Resource(String name, ImageIcon small, ImageIcon large, int amount){
 	super(name, small, large);
 	this.amount = amount;

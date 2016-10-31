@@ -23,7 +23,7 @@ public class MainScreen extends JFrame{
 
 	chars = new JButton("Character");
 	acts = new JButton("Activities");
-	items = new JBUtton("Items");
+	items = new JButton("Items");
 	radio = new JButton(new ImageIcon("radio.png"));
 
 	setLocationRelativeTo(null);			     
