@@ -2,33 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5c1f679-bbcc-4de1-b52a-0d957c9d9c00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bread1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/breadBig.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/water1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/waterBig.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Gun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Item.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Map.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/char.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/characters.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/characterss.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/dailyDecisions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/daily_situations.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/huntardGame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/junkfile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/main_class.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/medkit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/minigame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/pseudo-classes-wd.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/resource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/huntardgame.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Character.java" afterPath="$PROJECT_DIR$/Character.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Decision.java" afterPath="$PROJECT_DIR$/Decision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Item.java" afterPath="$PROJECT_DIR$/Item.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItemScreen.java" afterPath="$PROJECT_DIR$/ItemScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JeffStartScreen.java" afterPath="$PROJECT_DIR$/JeffStartScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainScreen.java" afterPath="$PROJECT_DIR$/MainScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Resource.java" afterPath="$PROJECT_DIR$/Resource.java" />
     </list>
     <ignored path="Huntard.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +31,8 @@
           <file leaf-file-name="JeffStartScreen.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/JeffStartScreen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="271" column="63" selection-start-line="271" selection-start-column="63" selection-end-line="271" selection-end-column="63" />
+                <state relative-caret-position="1792">
+                  <caret line="354" column="73" selection-start-line="354" selection-start-column="73" selection-end-line="354" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
@@ -86,13 +62,13 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="ItemScreen.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ItemScreen.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ItemScreen.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="654">
+                  <caret line="151" column="8" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
                   <folding>
-                    <marker date="1477936690000" expanded="false" signature="3645:3651" ph="&lt;~&gt;" />
+                    <marker date="1478011707000" expanded="false" signature="4227:4233" ph="&lt;~&gt;" />
                   </folding>
                 </state>
               </provider>
@@ -108,11 +84,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Character.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Character.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Character.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
+                <state relative-caret-position="562">
+                  <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
                   <folding />
                 </state>
               </provider>
@@ -133,13 +109,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Character.java" />
         <option value="$PROJECT_DIR$/Item.java" />
         <option value="$PROJECT_DIR$/Resource.java" />
         <option value="$PROJECT_DIR$/MainScreen.java" />
         <option value="$PROJECT_DIR$/Decision.java" />
-        <option value="$PROJECT_DIR$/JeffStartScreen.java" />
         <option value="$PROJECT_DIR$/ItemScreen.java" />
+        <option value="$PROJECT_DIR$/JeffStartScreen.java" />
+        <option value="$PROJECT_DIR$/Character.java" />
       </list>
     </option>
   </component>
@@ -499,7 +475,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="980" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -509,11 +485,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15893272" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11782662" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11782662" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -659,29 +635,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Character.java">
+    <entry file="file://$PROJECT_DIR$/Huntard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JeffStartScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="271" column="63" selection-start-line="271" selection-start-column="63" selection-end-line="271" selection-end-column="63" />
+        <state relative-caret-position="562">
+          <caret line="280" column="19" selection-start-line="280" selection-start-column="19" selection-end-line="280" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ItemScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="654">
+          <caret line="151" column="8" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
           <folding>
-            <marker date="1477936690000" expanded="false" signature="3645:3651" ph="&lt;~&gt;" />
+            <marker date="1478011707000" expanded="false" signature="4227:4233" ph="&lt;~&gt;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JeffStartScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1792">
+          <caret line="354" column="73" selection-start-line="354" selection-start-column="73" selection-end-line="354" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

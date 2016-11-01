@@ -57,7 +57,8 @@ public class Character{
 
     //toString
     public String toString(){
-	return name + "\n\nStrength: " + strength + "\nStealth: " + stealth + "\nIntelligence: " + intelligence + "\nPsychology: " + psychology;
+	return name + "\n\nStrength: " + strength + "\nStealth: " + stealth + "\nIntelligence: " + intelligence + "\nPsychology: " + psychology +
+            "\nThirst: " + getThirst() + "\nHunger: " + getHP();
     }
   
 }

@@ -269,7 +269,8 @@ public class JeffStartScreen extends JFrame{
                 removeAllPanels();
                 centerPanel.setBackground(color1);
                 //Insert what Robert is working on here....
-                ItemScreen screen = new ItemScreen(centerPanel);
+                frame.dispose();
+                ItemScreen screen = new ItemScreen();
 
             } else if(cmd.equals("Back")){
                 removeAllPanels();
@@ -288,12 +289,16 @@ public class JeffStartScreen extends JFrame{
                             if(cmd.equals("Give Water")){
                                 if(amountWater >= 0 && chars.get(i).getThirst() < 100){
                                     chars.get(i).setThirst(10);
+                                }else if(amountWater <= 0){
+                                    warningText.setText("Not enough water");
                                 }else{
                                     warningText.setText("Cannot give water");
                                 }
                             }else if(cmd.equals("Give Food")){
                                 if(amountFood >= 0 && chars.get(i).getHP() < 100){
                                     chars.get(i).setHP(10);
+                                }else if(amountFood <= 0){
+                                    warningText.setText("Not enough food");
                                 }else {
                                     warningText.setText("Cannot give food");
                                 }
@@ -304,13 +309,17 @@ public class JeffStartScreen extends JFrame{
                             if (cmd.equals("Give Water")) {
                                 if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
                                     chars.get(i).setThirst(10);
-                                } else {
+                                } else if(amountWater <= 0){
+                                    warningText.setText("Not enough water");
+                                }else {
                                     warningText.setText("Cannot give water");
                                 }
                             } else if (cmd.equals("Give Food")) {
                                 if (amountFood >= 0 && chars.get(i).getHP() < 100) {
                                     chars.get(i).setHP(10);
-                                } else {
+                                } else if(amountWater <= 0){
+                                    warningText.setText("Not enough food");
+                                }else {
                                     warningText.setText("Cannot give food");
                                 }
                             }
@@ -320,13 +329,17 @@ public class JeffStartScreen extends JFrame{
                             if (cmd.equals("Give Water")) {
                                 if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
                                     chars.get(i).setThirst(10);
-                                } else {
+                                } else if(amountWater <= 0){
+                                    warningText.setText("Not enough water");
+                                }else{
                                     warningText.setText("Cannot give water");
                                 }
                             } else if (cmd.equals("Give Food")) {
                                 if (amountFood >= 0 && chars.get(i).getHP() < 100) {
                                     chars.get(i).setHP(10);
-                                } else {
+                                } else if(amountWater <= 0){
+                                    warningText.setText("Not enough food");
+                                }else{
                                     warningText.setText("Cannot give food");
                                 }
                             }
@@ -336,13 +349,17 @@ public class JeffStartScreen extends JFrame{
                             if (cmd.equals("Give Water")) {
                                 if (amountWater >= 0 && chars.get(i).getThirst() < 100) {
                                     chars.get(i).setThirst(10);
-                                } else {
+                                } else if(amountWater <= 0){
+                                    warningText.setText("Not enough water");
+                                }else {
                                     warningText.setText("Cannot give water");
                                 }
                             } else if (cmd.equals("Give Food")) {
                                 if (amountFood >= 0 && chars.get(i).getHP() < 100) {
                                     chars.get(i).setHP(10);
-                                } else {
+                                } else if(amountFood <= 0){
+                                    warningText.setText("Not enough food");
+                                }else{
                                     warningText.setText("Cannot give food");
                                 }
                             }
@@ -605,9 +622,10 @@ public class JeffStartScreen extends JFrame{
     }
 
 
+    static JeffStartScreen frame;
     public static void main(String[] args){
 
-        JeffStartScreen frame = new JeffStartScreen(new ArrayList<Character>());
+        frame = new JeffStartScreen(new ArrayList<Character>());
     }
 
 }

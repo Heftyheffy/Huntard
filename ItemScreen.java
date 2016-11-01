@@ -9,9 +9,11 @@ public class ItemScreen extends JFrame{
 	JLabel title, item1, item2, item3, item4, item5, item6, gun, map, description1, description2, tempLabel, tempIcon;
     JPanel midPanel, titlePanel, mainPanel, item1Panel, item2Panel, tempPanel;
     ImageIcon image1, image2;
-    Color color1, color2;  
+    Color color1, color2;
+
+	JButton backButton;
 	
-	public ItemScreen(JPanel x){
+	public ItemScreen(){
 		color1 = new Color(220,0,0);
 		color2 = new Color(130,0,0);
 		//itemList = theItems;
@@ -22,7 +24,10 @@ public class ItemScreen extends JFrame{
 		midPanel = new JPanel(new GridLayout(2, 3));
 		titlePanel = new JPanel();
 		mainPanel = new JPanel(new BorderLayout());
-
+	//Configure back button
+		backButton = new JButton("Back");
+		backButton.addActionListener(new ButtonListener());
+		backButton.setBackground(Color.white);
 
 	//configures titlePanel/title
 		title = new JLabel("Items");
@@ -30,6 +35,9 @@ public class ItemScreen extends JFrame{
 		title.setForeground(Color.black);
 		titlePanel.add(title);	
 		titlePanel.setBackground(color1);
+
+	//Add back button on titlePanel
+		titlePanel.add(backButton);
 
 	//configures the containers for the items
 		item1 = new JLabel("Glock");
@@ -100,6 +108,19 @@ public class ItemScreen extends JFrame{
 		setVisible(true);
 
 }
+	class ButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent evt){
+			String cmd = evt.getActionCommand();
+			if(cmd.equals("Back")){
+				JeffStartScreen jeff = new JeffStartScreen(chars);
+				jeff.removeAllPanels();
+				jeff.setUpMainScreen();
+				mainPanel.updateUI();
+
+
+			}
+		}
+	}
 	/*public static void createPanels(){
 		for (Item anItem : itemList) {
 			tempLabel = new JLabel(anItem.name);
@@ -113,6 +134,7 @@ public class ItemScreen extends JFrame{
 	
 
 	static ItemScreen frame;
+	static ArrayList<Character> chars;
     public static void main(String[] args){
 		/*
     	ImageIcon gunImage, mapImage;
@@ -127,6 +149,9 @@ public class ItemScreen extends JFrame{
     		System.out.println(i.name);
     	}
     	*/
+		chars = new ArrayList<>();
 		frame = new ItemScreen();
+
+
     }
 }
