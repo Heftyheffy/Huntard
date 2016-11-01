@@ -26,7 +26,7 @@ import javax.imageio.*;
 import java.awt.image.*;
 import javax.swing.border.*;
 
-public class huntardMainScreen extends JFrame{
+public class JeffStartScreen extends JFrame{
     //Variables for night and day
     //If player selecting hunting/scav, they could only choose it after compleltion of daily decision
     //After daily decision, it becomes night time
@@ -42,12 +42,12 @@ public class huntardMainScreen extends JFrame{
     Color color1, color2;
 
     //Characters from ArrayList
-    ArrayList<Characters> chars;
+    ArrayList<Character> chars;
     //Creating Resource for Food & Water and Resource extends Item
     //Meaning will have Item attributes
     Resource source;
 
-    public huntardMainScreen(ArrayList<Characters> c){
+    public JeffStartScreen(ArrayList<Character> c){
         color1 = new Color(193, 189, 189);
         color2 = new Color(124, 197, 234);
 
@@ -60,9 +60,9 @@ public class huntardMainScreen extends JFrame{
 
             Remember: To go back to GameStart in ContinueStory method to uncomment!
          */
-        Characters charSteve = new Characters("Steve", 3, 1, 0, 2);
-        Characters charLarry = new Characters("Larry", 1, 2, 3, 0);
-        Characters charJoe = new Characters("Joe", 0, 3, 2, 1);
+        Character charSteve = new Character("Steve", 3, 1, 0, 2);
+        Character charLarry = new Character("Larry", 1, 2, 3, 0);
+        Character charJoe = new Character("Joe", 0, 3, 2, 1);
 
         chars.add(charSteve);
         chars.add(charLarry);
@@ -284,7 +284,7 @@ public class huntardMainScreen extends JFrame{
     String chosenChar1, chosenChar2, chosenChar3;
     String infoChar1, infoChar2, infoChar3;
 
-    public void choosenCharacters(ArrayList<Characters> chars){
+    public void choosenCharacters(ArrayList<Character> chars){
         chosenChar1 = chars.get(0).getName();
         chosenChar2 = chars.get(1).getName();
         chosenChar3 = chars.get(2).getName();
@@ -504,7 +504,7 @@ public class huntardMainScreen extends JFrame{
 
     public static void main(String[] args){
 
-        huntardMainScreen frame = new huntardMainScreen(new ArrayList<Characters>());
+        JeffStartScreen frame = new JeffStartScreen(new ArrayList<Character>());
     }
 
 }
