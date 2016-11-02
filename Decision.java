@@ -20,7 +20,7 @@ public class Decision{
     ArrayList<Character> chars;
     ArrayList<Item> items;
     Character c;
-    int decisionNum = 2;
+    int decisionNum = 4;
     
     public Decision(String text, boolean simple, String[] options, String[] endings, Algorithm algo){
 	this.text = text;
@@ -65,8 +65,8 @@ public class Decision{
 	area.setText(d[decisionNum].text);
 	if(d[decisionNum].simple){
 	    cBox = new JComboBox(d[decisionNum].options);
-	    cBox.setPreferredSize(new Dimension(200, 20));
-	    sPanel.add(cBox);
+	    cBox.setPreferredSize(new Dimension(300, 20));
+	    sPanel.add(cBox);	    
 	    sPanel.add(enter);
 	    
 	}
@@ -123,9 +123,22 @@ public class Decision{
 	d[1] = new Decision("A sound can be heard coming from the crawlspace underneath the shelter. Who should go investigate?", false, null, e, rithm);
 
 	String[] o = {"Yes", "No"};
-	e = new String[]{"The rain turned out to have a high acidity and drinking it caused everyone to lose some health\n-20 All Health", "Water from the sky is gross anyways\n"};
+	e = new String[]{"The rain turned out to have a high acidity and drinking it caused everyone to lose some health\n-20 All Health", "Water from the sky is gross anyways\n+5 Nothing"};
 	d[2] = new Decision("A torrential rain has started outside, should you go out and try to collect some to drink?", true, o, e, null);
-	
+
+	o = new String[]{"Give them some candy", "Refuse to give them any candy", "Give them some food and water"};
+	e = new String[]{"You didn't have any candy to give but they appreciated the thought and gave you a gift in return\n+1 Halloween Costume", "Crazy people don't take lightly to being disrespected. They stormed the shelter and attacked everyone in it.\n-20 All Health", "They may be crazy but they know what candy is and it isn't this. But they took it anyways. Unhappily\n-1 Food and Water"};
+	d[3] = new Decision("A group of crazy people dressed in halloween costumes appeared outside asking for candy, what should you do?", true, o, e, null);
+
+	o = new String[]{"Yes", "No"};
+	e = new String[]{"Your search proved fruitful, you found food and water!\n+1 Food and Water", "It remained quiet outside\n+5 Nothing"};
+	d[4] = new Decision("There's been no movement outside for a couple days now, should you go look around for supplies?", true, o, e, null);
+
+	itemInts = new int[]{0,1,2,4,3,0,-100,-1};
+	rithm = new Algorithm(2,3,3,2, itemInts);
+	e = new String[]{"You wandered around aimlessly until you were cornered by a dog and forced to forfeit your food\n-1 Food", "You wandered around aimlessly until you were cornered by an armed hobo who took your water\-1 Water", "You wandered around aimlessly until you were attacked by a band of armed youths\n-50 Health", "You wandered around, unable to find anything resembling entertainment, then you fell and scraped your knee\n-10 Health", "You found a couple"};
+	d[5] = new Decision("Spirits are running low among in the group so they have resolved to go out and get some entertainment. Who should go?", false, null, e, rithm);
+
 	return d;
     }
 
@@ -134,7 +147,11 @@ public class Decision{
 	int index;
 	if(d[decisionNum].simple){
 	    index = num;
+	    area.setText(d[decisionNum].endings[index]);
+	    sPanel.add(okay);
+	    panel.updateUI();
 	}
+	
 	else{
 	    if(num < -100) index = 0;
 	    else if(num < 0) index = 1;
@@ -145,12 +162,14 @@ public class Decision{
 	    sPanel.add(okay);
 	    panel.updateUI();
 	}
+	
 	String action = d[decisionNum].endings[index].substring(d[decisionNum].endings[index].indexOf("\n"));	
 	String amount = action.substring(1,4);
 	amount = amount.trim();
 	action = action.substring(4);
 	action = action.trim();
 	int numAmount = Integer.valueOf(amount);
+	
         if(action.equals("Health")){
 	    c.setHP(c.getHP()+numAmount);	    
 	}
@@ -168,6 +187,11 @@ public class Decision{
 	    food.addAmount(numAmount);
 	    water.addAmount(numAmount);	    
 	}
+	else if(action.equals("All Health")){
+	    for(int i=0; i<chars.size(); i++){
+		chars.get(i).setHP(chars.get(i).getHP()+numAmount);
+	    }
+	}        
     }
 
     class ButtonListener implements ActionListener{
@@ -182,7 +206,7 @@ public class Decision{
 		    c = chars.get(cBox.getSelectedIndex());
 		    int num = d[decisionNum].algo.getNumber(c.getStrength(), c.getStealth(), c.getIntelligence(), c.getPsychology(), iBox.getSelectedItem());
 		    System.out.println(num);
-		    //updatePanel(num);
+		    updatePanel(num);
 		}
 	    }
 	    
