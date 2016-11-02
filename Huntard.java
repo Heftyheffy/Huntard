@@ -92,7 +92,7 @@ public class Huntard extends JFrame{
 
 	//setup frame
 	add(mainPanel);
-        setSize(1200, 700);
+     setSize(1200, 700);
 	setResizable(false);	
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setLocationRelativeTo(null);

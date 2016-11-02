@@ -23,8 +23,9 @@ public class Item {
 
 
     //Constructor only accepting one parameter, because it all that the classes will inherit
-    public Item(String theName, ImageIcon image1, ImageIcon image2){
-        name = x;
+    public Item(String theName, ImageIcon image1){
+        name = theName;
+        smallIcon = image1;
     }
 
     //Getter method: retrieving the name of the item
