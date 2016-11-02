@@ -76,7 +76,7 @@ public void intDown(int a){
 
 -----------------------------------------------------------------------------------------------------------------
 Class Medic extends Character()
--example methods here would be
+-example methods here would be 
 
 public void medicHeal(int a){
 charHp = charHp + ( 2*a);
@@ -84,7 +84,7 @@ charHp = charHp + ( 2*a);
 
 and other things of the like.
 
-I don't know what class specific benefits to add. So that should be discussed later.
+I dont know what class specific benifits to add. So that should be discussed later.
 
 -----------------------------------------------------------------------------------------------------------------
 *** 3 more Character specific class with added bonuses(they should all select Character as the parent classfor access to variables and methods)
@@ -111,7 +111,7 @@ methods exist to:
 	set the background as an image
 	draw directly onto the field
 	resize itself
-
+	
 Along with methods inherited from other classes in the awt package (brace for wall of text impact) **********
 You dont need to be familiar with every single one of these,  but there are plenty of useful things in here.
 

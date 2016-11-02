@@ -44,24 +44,24 @@ public class HuntardMainScreen extends JFrame{
 
          */
         //Creating an ArrayList for Items to be stored
-        listItem = new ArrayList<Item>();
+    listItem = new ArrayList<Item>();
         //Adding the items that will be giving to the player
-	Random rand = new Random();
+    Random rand = new Random();
         
 	listItem.add(new Resource("Food", null, new ImageIcon("foodIcon.png"), rand.nextInt(4)+1));
-	listItem.add(new Resource("Water", null, new ImageIcon("waterIcon.png"), rand.nextInt(4)+1));
-        listItem.add(new Item("Map", null, new ImageIcon("mapIcon.png")));
+    listItem.add(new Resource("Water", null, new ImageIcon("waterIcon.png"), rand.nextInt(4)+1));
+    listItem.add(new Item("Map", null, new ImageIcon("mapIcon.png")));
 	listItem.add(new Item("Pistol", null, new ImageIcon("gunIcon1.png")));
 	
         //initialize panels
-        leftPanel = new JPanel();
-        rightPanel = new JPanel();
-        centerPanel = new JPanel();
-        topPanel = new JPanel();
-        bottomPanel = new JPanel();
+    leftPanel = new JPanel();
+    rightPanel = new JPanel();
+    centerPanel = new JPanel();
+    topPanel = new JPanel();
+    bottomPanel = new JPanel();
 
-        titlePanel = new JPanel();
-        mainPanel = new JPanel(new BorderLayout());
+    titlePanel = new JPanel();
+    mainPanel = new JPanel(new BorderLayout());
 
 	character = new JButton("Character");
         character.setPreferredSize(new Dimension(100, 100));
@@ -430,4 +430,4 @@ public class HuntardMainScreen extends JFrame{
         HuntardMainScreen frame = new HuntardMainScreen(new ArrayList<Character>());
     }
 
-}
+    }
