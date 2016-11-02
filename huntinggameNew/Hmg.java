@@ -20,7 +20,7 @@ public class Hmg extends Canvas implements Runnable{
 	private BufferedImage sSheet = null;
 	private BufferedImage background = null;
 
-	private int enemyCount = 5;
+	private int enemyCount = 1;
 	private int enemyKilled = 0;
 
 	private Hplayer p;
@@ -43,7 +43,7 @@ public class Hmg extends Canvas implements Runnable{
 		addKeyListener(new KeyInput(this));
 		tex = new Texture(this);
 		p = new Hplayer(200,200, tex);
-		c = new Controller(tex);
+		c = new Controller(tex, this);
 		ea = c.getEntityA();
 		eb = c.getEntityB();
 		c.createEnemy(enemyCount);
@@ -85,6 +85,12 @@ public class Hmg extends Canvas implements Runnable{
 	private void tick(){
 		p.tick();
 		c.tick();
+		if(enemyKilled>=enemyCount){
+			enemyCount+=2;
+			enemyKilled = 0;
+			c.createEnemy(enemyCount);
+
+		}
 	}
 	//method for making the pictures on the screen woooooo!!@$@#!$!@$
 	private void render(){
@@ -172,10 +178,10 @@ public class Hmg extends Canvas implements Runnable{
 	public BufferedImage getSS(){
 		return sSheet;
 	}
-	public int getenemyKilled(){
+	public int getEnemyKilled(){
 		return enemyKilled;
 	}
-	public int getenemyCount(){
+	public int getEnemyCount(){
 		return enemyCount;
 	}
 	public void setEnemyKilled(int enemyKilled){

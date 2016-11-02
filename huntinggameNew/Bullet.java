@@ -15,9 +15,6 @@ public class Bullet extends GameObject implements EntityA{
 	public void tick(){
 		y-=10;
 
-		if(Physics.Collision(this, game.eb)){
-			System.out.println("eyy they hit each other");
-		}
 	}
 	public void render(Graphics g){
 		g.drawImage( tex.bullet, (int)x, (int)y, null);

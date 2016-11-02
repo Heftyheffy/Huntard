@@ -7,10 +7,16 @@ public class Enemy extends GameObject implements EntityB{
 	
 	private Texture tex;
 	Random r = new Random();
+	private Hmg game;
+	private Controller c;
+	Graphics gblood;
+
 	private int speed = r.nextInt(3)+1;
-	public Enemy(double x, double y, Texture tex){
+	public Enemy(double x, double y, Texture tex, Controller c, Hmg game){
 		super(x, y);
 		this.tex=tex;
+		this.c = c;
+		this.game = game;
 	}
 
 	public void tick(){
@@ -18,6 +24,10 @@ public class Enemy extends GameObject implements EntityB{
 		if( y > (Hmg.height * Hmg.scale)){
 			y = 0;
 			x = r.nextInt(Hmg.width * Hmg.scale);
+		}
+		if(Physics.Collision(this, game.ea)){
+			c.removeEntityB(this);
+			game.setEnemyKilled(game.getEnemyKilled() + 1);
 		}
 	}
 	public void render(Graphics g){

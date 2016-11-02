@@ -12,4 +12,13 @@ public class Physics{
 
 		return false;
 	}
+		public static boolean Collision(EntityB entB, LinkedList<EntityA> entA){
+			for(int i=0; i<entA.size() ;i++){
+				if(entB.getBounds().intersects(entA.get(i).getBounds())){
+					return true;
+				}
+			}
+
+		return false;
+	}
 }
