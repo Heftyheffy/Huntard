@@ -6,19 +6,20 @@ import javax.swing.text.*;
 import java.awt.event.*;
 
 public class ItemScreen extends JFrame{
-	JLabel title, item1, item2, item3, item4, item5, item6, gun, map, description1, description2, tempLabel, tempIcon;
-    JPanel midPanel, titlePanel, mainPanel, item1Panel, item2Panel, tempPanel;
+	JLabel title, tempLabel, tempIcon;
+    JPanel midPanel, titlePanel, mainPanel, tempPanel;
     ImageIcon image1, image2;
-    Color color1, color2;  
+    Color color1, color2; 
+    ArrayList<Item> items;
+    ArrayList<JPanel> panelList;
 	
-	public ItemScreen(){
+	public ItemScreen(ArrayList itemList){
 		color1 = new Color(220,0,0);
 		color2 = new Color(130,0,0);
-		//itemList = theItems;
+		items = itemList;
 
 	//initialize panels
-		item1Panel = new JPanel(new BorderLayout());
-		item2Panel = new JPanel(new BorderLayout());
+
 		midPanel = new JPanel(new GridLayout(2, 3));
 		titlePanel = new JPanel();
 		mainPanel = new JPanel(new BorderLayout());
@@ -31,7 +32,7 @@ public class ItemScreen extends JFrame{
 		titlePanel.setBackground(color1);
 
 	//configures the containers for the items
-		item1 = new JLabel("Glock");
+		/*item1 = new JLabel("Glock");
 		item1.setFont(new Font(Font.MONOSPACED, Font.BOLD, 50));
 		item1.setForeground(Color.black);
 
@@ -83,11 +84,27 @@ public class ItemScreen extends JFrame{
 		midPanel.add(item4);
 		midPanel.add(item5);
 		midPanel.add(item6);
-		
+			
+	*/
 
-	//add midPanel to mainPanel
+	//add titlePanel to mainPanel
 		mainPanel.add(titlePanel, BorderLayout.NORTH);
-		//createPanels()
+	
+	//add items to midpanel
+		for (Item anItem : items){
+			tempPanel = new JPanel(new BorderLayout());
+			tempLabel = new JLabel(anItem.getName());
+			tempIcon = new JLabel(anItem.getSmallIcon());
+			tempPanel.add(tempLabel, BorderLayout.NORTH);
+			tempPanel.add(tempIcon, BorderLayout.CENTER);
+			//tempPanel.add(description1, BorderLayout.SOUTH);
+			panelList.add(tempPanel);
+		}
+
+		for (JPanel aPanel : panelList){
+			midPanel.add(aPanel);
+		}
+	//add midPanel to mainPanel	
 		mainPanel.add(midPanel, BorderLayout.CENTER);
 
 	//setup frame
@@ -97,34 +114,27 @@ public class ItemScreen extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
-
 }
-	/*public static void createPanels(){
-		for (Item anItem : itemList) {
-			tempLabel = new JLabel(anItem.name);
-			tempIcon = new JLabel(anItem.icon);
-			tempPanel.add(tempLayout, BorderLayout.NORTH);
-			tempPanel.add(tempIcon, BorderLayout.CENTER);
-			tempPanel.add(description1, BorderLayout.SOUTH);
-			midPanel.add(tempPanel);
-		}
-	}*/
-	
 
 	static ItemScreen frame;
     public static void main(String[] args){
+    	
     	ImageIcon gunImage, mapImage;
+    	Item gunItem, mapItem;
+
+    	//set images
     	gunImage = new ImageIcon("gun1.png");
-    	gunItem = new Item("gun", gunImage);
     	mapImage = new ImageIcon("mapIcon.png");
+    	
+    	//initialize items
+    	gunItem = new Item("gun", gunImage);
     	mapItem = new Item("map", mapImage);
+    	
     	ArrayList<Item> items = new ArrayList<Item>();
+    	
     	items.add(gunItem);
     	items.add(mapItem);
-    	for (Item i : items) {
-    		System.out.println(i.name);
-    	}
 
-		frame = new ItemScreen();
+		frame = new ItemScreen(items);
     }
 }
