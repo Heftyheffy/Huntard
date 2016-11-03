@@ -2,24 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0baecd85-1ce7-423e-9641-e8d70c99d938" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Gun.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Item.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/Map.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/char.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/characters.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/characterss.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/dailyDecisions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/daily_situations.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/huntardGame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/junkfile.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/main_class.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/medkit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/minigame.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/pseudo-classes-wd.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documentFiles/resource.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HuntardMainScreen.java" afterPath="$PROJECT_DIR$/HuntardMainScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JeffStartScreen.java" afterPath="$PROJECT_DIR$/JeffStartScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainScreen.java" afterPath="$PROJECT_DIR$/MainScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Item.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/foodDesc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/gunDesc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/mapDesc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/medKitDesc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/radioDesc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itemDesc/waterDesc.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItemScreen.class" afterPath="$PROJECT_DIR$/ItemScreen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Bullet.class" afterPath="$PROJECT_DIR$/huntinggameNew/Bullet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Controller.class" afterPath="$PROJECT_DIR$/huntinggameNew/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Enemy.class" afterPath="$PROJECT_DIR$/huntinggameNew/Enemy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Hmg.class" afterPath="$PROJECT_DIR$/huntinggameNew/Hmg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Physics.class" afterPath="$PROJECT_DIR$/huntinggameNew/Physics.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Texture.class" afterPath="$PROJECT_DIR$/huntinggameNew/Texture.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/spritesheet.png" afterPath="$PROJECT_DIR$/huntinggameNew/spritesheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Huntard.java" afterPath="$PROJECT_DIR$/Huntard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Item.java" afterPath="$PROJECT_DIR$/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ItemScreen.java" afterPath="$PROJECT_DIR$/ItemScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Bullet.java" afterPath="$PROJECT_DIR$/huntinggameNew/Bullet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Controller.java" afterPath="$PROJECT_DIR$/huntinggameNew/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Enemy.java" afterPath="$PROJECT_DIR$/huntinggameNew/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Hmg.java" afterPath="$PROJECT_DIR$/huntinggameNew/Hmg.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Physics.java" afterPath="$PROJECT_DIR$/huntinggameNew/Physics.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/huntinggameNew/Texture.java" afterPath="$PROJECT_DIR$/huntinggameNew/Texture.java" />
     </list>
     <ignored path="Huntard.iws" />
     <ignored path=".idea/workspace.xml" />

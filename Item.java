@@ -23,10 +23,16 @@ public class Item {
 
 
     //Constructor only accepting one parameter, because it all that the classes will inherit
+<<<<<<< HEAD
+    public Item(String theName, ImageIcon image1){
+        name = theName;
+        smallIcon = image1;
+=======
     public Item(String theName, ImageIcon small, ImageIcon large){
         name = theName;
 	smallIcon = small;
 	largeIcon = large;
+>>>>>>> origin/master
     }
 
     //Getter method: retrieving the name of the item

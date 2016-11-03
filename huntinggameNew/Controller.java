@@ -11,9 +11,11 @@ public class Controller{
 	EntityB entB;
 	private Texture tex; 
 	Random r = new Random();
+	private Hmg game;
 
-	public Controller(Texture tex){
+	public Controller(Texture tex, Hmg game){
 		this.tex = tex;
+		this.game = game;
 	}
 
 	public void tick(){
@@ -61,7 +63,7 @@ public class Controller{
 	}
 	public void createEnemy(int enemyCount){
 		for(int i=0;i<enemyCount;i++){
-			addEntityB(new Enemy(r.nextInt(700), -10, tex));
+			addEntityB(new Enemy(r.nextInt(700), -10, tex, this, game));
 		}
 	}
 	public LinkedList<EntityA> getEntityA(){
