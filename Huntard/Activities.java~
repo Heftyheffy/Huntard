@@ -1,0 +1,16 @@
+import java.awt.*;
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.text.*;
+import java.awt.event.*;
+import javax.swing.border.*;
+
+public class Activities extends JFrame{
+    JButton hunt, scavenge;
+    
+
+    public Activities(){
+	
+    }
+}
