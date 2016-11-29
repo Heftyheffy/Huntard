@@ -20,11 +20,13 @@ public class Item {
     private String name;
     private ImageIcon smallIcon, largeIcon;
     private String description;
+    private int durability;
 
     public Item(String theName, ImageIcon small, ImageIcon large){
         name = theName;
 	smallIcon = small;
 	largeIcon = large;
+	durability = 100;
     }
 
     //Getter method: retrieving the name of the item
@@ -48,4 +50,15 @@ public class Item {
 	return largeIcon;
     }
 
+    public int getDurability(){
+	return durability;
+    }
+
+    public void decDurability(int a){
+	durability -= a;
+    }
+
+    public void setDurability(int a){
+	durability = a;
+    }
 }

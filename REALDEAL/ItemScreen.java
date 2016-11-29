@@ -52,8 +52,8 @@ public class ItemScreen{
 	allItems[4] = new Item("Radio", null, new ImageIcon("radio.png"));
 	allItems[4].setDescription("A radio. Sometimes you need to hear what's going on around you. Not much music on it nowadays.");
 
-	allItems[5] = new Item("Med Kit", null, new ImageIcon("medkit.png"));
-	allItems[5].setDescription("A med kit. Use it if you start to die.");
+	allItems[5] = new Item("Medkit", null, new ImageIcon("medkit.png"));
+	allItems[5].setDescription("A medkit. Use it if you start to die.");
 
 	allItems[6] = new Item("Pistol", null, new ImageIcon("gun1.png"));
 	allItems[6].setDescription("A powerful handgun. Use for self-protection and hunting nazi zombie gorillas.");
