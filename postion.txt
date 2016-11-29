@@ -1,0 +1,19 @@
+james
+  radio, hunting game, work with Chase for scavenging game
+  
+hunter
+  redo use case and sequence diagrams, coding for sleep, defense, stat checking, map
+  
+jeff
+  rationale for sequence diagram, talk to character and medkit(look at how hunter did food and water, add another button for 
+    health button), redo rationale for functionalites to all RTM, set up basic layout of project legacy, cost analysis
+    
+robert
+  saving and loading, fixing rtm and use case numbering, requirements elitication, class object(problem: we were extending classes that didn't exsist) 
+    and test cases and a bit more test cases(proper format)
+  
+chase
+  scavening game, user guide, 
+  
+ALL
+  project legacy
