@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HUNTINGminiGAMEfinal/HUNTINGminiGAMEfinal.iml" filepath="$PROJECT_DIR$/HUNTINGminiGAMEfinal/HUNTINGminiGAMEfinal.iml" />
       <module fileurl="file://$PROJECT_DIR$/Huntard.iml" filepath="$PROJECT_DIR$/Huntard.iml" />
     </modules>
   </component>
