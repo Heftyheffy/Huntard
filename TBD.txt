@@ -28,6 +28,7 @@ DOCUMENT STUFF----------------------------------
 SOFTWARE----------------------
 1. Radio- This one won't be difficult in terms of GUI, I'm thinking make an array with different things to say about situations and then shuffle it based on a key and you can use the key to determine the index's location in the original array and pass that info to the Hunting/Scavengin game where they'll use it to determine the amount of enemies/gorillas and loot
 
+
 2. Defence- Setting it so that every night has a person that goes on guard or at least has the option to. This won't be difficult in terms of logic, just a boolean to see if its being guarded and if it is get the stats of the player and the stats of the gun. Also random generation of attacks on the base in terms of if it happens at all and the intensity of the attack. Also if a player is on guard then he doesn't get sleep, which brings me to the next one.
 
 3. Sleep- If a player doesn't get sleep their psychology decreases. I'm thinking that the factory by which it will decrease will be some variable multiplied by (4 - the psychology stat) so that lower psychology stats decrease by a higher amount. If a player is put on guard or goes out hunting/scavenging then they wont sleep.
