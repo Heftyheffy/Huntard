@@ -25,7 +25,6 @@ import java.util.EventListener;
 import javax.imageio.*;
 import java.awt.image.*;
 import javax.swing.border.*;
-package REALDEAL;
 
 public class HuntardMainScreen extends JFrame{
     int dayNum = 1;
