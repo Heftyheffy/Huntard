@@ -30,7 +30,7 @@ public class HuntardMainScreen extends JFrame{
     int dayNum = 1;
 
     JLabel title, mainPanel;
-    JButton character, activites, items, radio, backButton, waterButton, foodButton;
+    JButton character, activites, items, radio, backButton, waterButton, foodButton, nextDay;
     JPanel leftPanel, centerPanel, rightPanel, topPanel, bottomPanel, titlePanel;
     ImageIcon image;
     Color color1, color2;
@@ -42,7 +42,7 @@ public class HuntardMainScreen extends JFrame{
     //Creating Resource for Food & Water and Resource extends Item
     //Meaning will have Item attributes
     int currCharIndex;
-
+    
     public HuntardMainScreen(ArrayList<Character> c){
         color1 = new Color(193, 189, 189);
         color2 = new Color(124, 197, 234);
@@ -53,6 +53,14 @@ public class HuntardMainScreen extends JFrame{
 	//Create dummy object
 	d = new Decision(null, false, null, null, null);
 	d.generateDecisions();
+
+	nextDay = new JButton("Next Day");
+	nextDay.setPreferredSize(new Dimension(150, 50));
+        nextDay.setBackground(Color.lightGray);
+	nextDay.setFocusPainted(false);
+        nextDay.setForeground(Color.red);
+        nextDay.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
+        nextDay.addActionListener(new ButtonListener());
 
         //Creating an ArrayList for Items to be stored
         listItem = new ArrayList<>();
@@ -157,13 +165,16 @@ public class HuntardMainScreen extends JFrame{
 
         //add daily decision panel
 	centerPanel.setOpaque(false);
+	titlePanel.setLayout(new BorderLayout());
 	if(d.decisionNum == dayNum-1){
 	    d.getDecision(centerPanel, chars, listItem);
 	    activites.setEnabled(false);
 	}
-	else title.setText("Night " + dayNum);
-
-	titlePanel.setLayout(new BorderLayout());
+	else{
+	    title.setText("Night " + dayNum);
+	    titlePanel.add(nextDay, BorderLayout.EAST);
+	}
+	
 	titlePanel.add(title, BorderLayout.WEST);
         titlePanel.setOpaque(false);
 	
@@ -219,6 +230,10 @@ public class HuntardMainScreen extends JFrame{
                 mainPanel.updateUI();
 
             }
+	    else if(cmd.equals("Next Day")){
+		dayNum++;
+		setUpMainScreen();
+	    }
 	    else if(cmd.equals("Activities")){
 		removeAllPanels();        
 		leftPanel = Activities.staticGetActivities(centerPanel, mainPanel, chars, listItem);
@@ -562,5 +577,8 @@ public class HuntardMainScreen extends JFrame{
         Resource food = (Resource) frame.listItem.get(0);
 	food.addAmount(intFood);
 	sentCharacter.setHP(health);
+	frame.mainPanel.setIcon(new ImageIcon("house2.jpg"));
+	frame.removeAllPanels();
+	frame.setUpMainScreen();
     }
 }

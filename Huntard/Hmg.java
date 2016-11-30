@@ -22,8 +22,8 @@ public class Hmg extends Canvas implements Runnable{
     private BufferedImage sSheet = null;
     private BufferedImage background = null;
 
-    private int enemyCount = 1;
-    private int enemyKilled = 0;
+    private int enemyCount;
+    private int enemyKilled;
 
     private Hplayer p;
     private Controller c;
@@ -34,10 +34,10 @@ public class Hmg extends Canvas implements Runnable{
     public LinkedList<EntityB> eb;
 
     public static int health;
-    private int timeLeft = 600;
+    private int timeLeft = 60;
 
-    public static Hmg game = new Hmg();
-    public static JFrame frame = new JFrame(game.title);
+    public static Hmg game;
+    public static JFrame frame;
     public static int strength;
     public static int endFood;
     public static int map;
@@ -189,9 +189,8 @@ public class Hmg extends Canvas implements Runnable{
 	    return;
 	*/
 	running = false;
-	System.out.println("Aqui");
 	frame.dispose();
-	HuntardMainScreen.sendResults(endFood, health);
+	HuntardMainScreen.sendResults(endFood, health/2);
 	try{
 	    thread.join();
 	}
@@ -239,7 +238,16 @@ public class Hmg extends Canvas implements Runnable{
         health = h*2;
 	strength = s;
 	map = m;
-	
+
+	game = new Hmg();
+	frame = new JFrame(game.title);
+	State = STATE.GAME;
+
+	endFood = 0;
+	game.enemyCount = 1;
+	game.enemyKilled = 0;
+	Enemy.kc = 0;
+
 	game.setPreferredSize(new Dimension(width*scale,height*scale));
 	game.setMaximumSize(new Dimension(width*scale,height*scale));
 	game.setMinimumSize(new Dimension(width*scale,height*scale));
@@ -272,6 +280,6 @@ public class Hmg extends Canvas implements Runnable{
     }
 
     public static void main(String[] args){
-	startHmg(9, 80);
+	startHmg(9, 80, 1);
     }
 }

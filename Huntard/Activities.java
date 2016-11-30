@@ -12,7 +12,8 @@ public class Activities{
     ArrayList<Character> chars;
     ArrayList<Item> items;
     boolean map;
-    JLabel mainPanel;    
+    JLabel mainPanel;
+    boolean[] days = new boolean[40];
 
     public static JPanel staticGetActivities(JPanel panel, JLabel mainPanel, ArrayList<Character> chars, ArrayList<Item> items){
 	Activities a = new Activities();	
@@ -129,7 +130,8 @@ public class Activities{
 		    HuntardMainScreen.setSentCharacter(c);
 		    c.decmState(5*(4-c.getPsychology()));
 		    gun.decDurability(10);
-		    Hmg.startHmg(gStrength + cStrength, cHP);
+		    Hmg.startHmg(gStrength + cStrength, cHP, 1);
+		    days[hms.dayNum-1] = true;
 		}
 	    }
 	    else if(cmd.equals("Go Scavenge")){
@@ -185,7 +187,8 @@ public class Activities{
 
     class PinListener implements ActionListener{
 	public void actionPerformed(ActionEvent evt){
-	    Hmg.startHmg(gStrength + cStrength, cHP);
+	    Hmg.startHmg(gStrength + cStrength, cHP, 1);
+	    days[hms.dayNum-1] = true;
 	}
     }
     
