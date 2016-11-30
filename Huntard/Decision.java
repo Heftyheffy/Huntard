@@ -48,16 +48,16 @@ public class Decision{
 	this.items = items;
 	
 	sPanel.setPreferredSize(new Dimension(100, 100));
-	sPanel.setBackground(Color.black);
+	sPanel.setBackground(Color.lightGray);
 
 	nPanel.setPreferredSize(new Dimension(60, 60));
-	nPanel.setBackground(Color.black);
+	nPanel.setBackground(Color.lightGray);
 	
 	lPanel.setPreferredSize(new Dimension(100, 100));
-	lPanel.setBackground(Color.black);
+	lPanel.setBackground(Color.lightGray);
 	
 	rPanel.setPreferredSize(new Dimension(100, 100));
-	rPanel.setBackground(Color.black);
+	rPanel.setBackground(Color.lightGray);
 	
 	day = new JLabel("Day 1");
 	day.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
@@ -101,7 +101,7 @@ public class Decision{
 	}
 	area.setLineWrap(true);
 	area.setWrapStyleWord(true);
-	area.setBackground(Color.black);
+	area.setBackground(Color.lightGray);
 	area.setForeground(Color.red);	
 	area.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
 	area.setEditable(false);

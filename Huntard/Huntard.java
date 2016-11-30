@@ -253,7 +253,7 @@ public class Huntard extends JFrame{
 		    b.setBackground(Color.white);
 		    chars.add(charJoanne);
 		    count++;
-d		}
+		}
 		else{
 		    b.setBackground(color2);
 		    count--;

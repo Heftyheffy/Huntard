@@ -39,6 +39,10 @@ public class Character{
 	mState = a;
     }
 
+    public void decmState(int a){
+	mState -= a;
+    }
+
     public void setHunger(int a){
 	hunger = a;
     }

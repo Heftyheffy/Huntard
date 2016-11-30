@@ -551,4 +551,16 @@ public class HuntardMainScreen extends JFrame{
 	c.add(charJoanne);
 	startHMS(c);
     }
+
+    static Character sentCharacter;
+
+    public static void setSentCharacter(Character c){
+	sentCharacter = c;
+    }
+    
+    public static void sendResults(int intFood, int health){
+        Resource food = (Resource) frame.listItem.get(0);
+	food.addAmount(intFood);
+	sentCharacter.setHP(health);
+    }
 }

@@ -39,8 +39,8 @@ public class Hmg extends Canvas implements Runnable{
     public static Hmg game = new Hmg();
     public static JFrame frame = new JFrame(game.title);
     public static int strength;
-    public static endFood;
-
+    public static int endFood;
+    public static int map;
 
     public enum STATE{
 	GAME,
@@ -88,7 +88,7 @@ public class Hmg extends Canvas implements Runnable{
 	    delta += (now - lastTime)/ns;
 	    lastTime=now;
 	    //the above code synchronizes the frames between when the variables are created and when the loop starts... because nano seconds and all.
-	    if(delta>=1){
+	    if(delta>=1){	        
 		tick();
 		updates++;
 		delta--;
@@ -97,7 +97,6 @@ public class Hmg extends Canvas implements Runnable{
 	    frames++;
 	    if(System.currentTimeMillis() - timer >1000){
 		timer +=1000;
-		System.out.println(updates + " < Ticks ||| FPS > " + frames);
 		timeLeft = timeLeft - 10;
 		updates=0;
 		frames = 0;
@@ -116,11 +115,11 @@ public class Hmg extends Canvas implements Runnable{
 	    enemyKilled = 0;
 	    c.createEnemy(enemyCount);
 	}
-	if(timeLeft<= 0){
-	    State = STATE.SCORE;
-	}
 	if(State == STATE.END){
 	    game.stop();
+	}
+	if(timeLeft<= 0){
+	    State = STATE.SCORE;
 	}
     }
     //method for making the pictures on the screen woooooo!!@$@#!$!@$
@@ -185,18 +184,21 @@ public class Hmg extends Canvas implements Runnable{
     }
     //stops the game and kills threads.
     private synchronized void stop(){
+	/*
 	if(!running)
 	    return;
+	*/
 	running = false;
+	System.out.println("Aqui");
+	frame.dispose();
+	HuntardMainScreen.sendResults(endFood, health);
 	try{
-	    //frame.dispose(); //add this back in when done testing.
 	    thread.join();
 	}
 	catch(InterruptedException e){
 	    System.out.println("THE THREADS ARE DEAD SEND HELP");
-	}
-	System.exit(1);
-		
+	}	
+        		
     }
     //Overloaded key methods wew
     public void keyPressed(KeyEvent e){
@@ -233,9 +235,10 @@ public class Hmg extends Canvas implements Runnable{
 	}
     }
     //temporary main method
-    public static void startHmg(int s, int h){
+    public static void startHmg(int s, int h, int m){
         health = h*2;
 	strength = s;
+	map = m;
 	
 	game.setPreferredSize(new Dimension(width*scale,height*scale));
 	game.setMaximumSize(new Dimension(width*scale,height*scale));

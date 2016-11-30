@@ -32,8 +32,7 @@ public class Enemy extends GameObject implements EntityB{
 			EntityA tempEnt = game.ea.get(i);
 		
 		if(Physics.Collision(this, tempEnt)){
-			health = health - Hmg.strength;
-			System.out.println(Hmg.strength);
+			health = health - Hmg.strength;			
 			c.removeEntityA(tempEnt);
 			if(health<=0){
 			c.removeEntityB(this);
