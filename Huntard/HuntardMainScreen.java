@@ -139,7 +139,65 @@ public class HuntardMainScreen extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+    
+    //Save Testing
+    try{
+    	autoSave();
+    	}
+    	catch(IOException e){
+    		e.printStackTrace();
+    	}
+
+   }
+    
+    //save function
+    public void autoSave() throws IOException{
+    	
+    	File file = new File("autosave.txt");
+    	
+    	// creates the file
+    	file.createNewFile();
+    	
+    	// creates a FileWriter Object
+    	FileWriter writer = new FileWriter(file);
+    	
+    	// Save Day Number
+    	writer.write("Day " + dayNum + "\n");
+
+    	//Save Chars
+    	for(int i = 0; i < chars.size(); i++){
+    		writer.write("Char " + i + " name "    + chars.get(i).getName() + "\n");
+    		writer.write("Char " + i + " stamina " + chars.get(i).getStamina() + "\n");
+    		writer.write("Char " + i + " hp "      + chars.get(i).getHP() + "\n");
+    		writer.write("Char " + i + " mstate  " + chars.get(i).getmState() + "\n");
+    		writer.write("Char " + i + " hunger "  + chars.get(i).getHunger() + "\n");
+    		writer.write("Char " + i + " thirst "  + chars.get(i).getThirst() + "\n");
+    	}
+
+    	//Save Resources and Items
+    	for(int i = 0; i < listItem.size(); i++){
+    		if (i < 3){
+    			writer.write("Resource " + i + " name "  + listItem.get(i).getName() + "\n");
+    			Resource temp = (Resource)listItem.get(i);
+    			int tempAmt = temp.getAmount();
+    			writer.write("Resource " + i + " amount " + (tempAmt + "\n"));
+    			writer.write("Resource " + i + " durability " + listItem.get(i).getDurability() + "\n");
+    		}
+    		else{
+    			writer.write("Item " + i + " name " + listItem.get(i).getName() + "\n");
+    			writer.write("Item " + i + " durability " + listItem.get(i).getDurability() + "\n");
+    		}
+    	}
+
+    	int saveKey = d.getKey();
+    	writer.write("Key " + saveKey + "\n");
+    	
+    	//close writer
+    	writer.flush();
+    	writer.close();
     }
+
+
     
     //Setting up main screen method
     public void setUpMainScreen(){
@@ -555,16 +613,237 @@ public class HuntardMainScreen extends JFrame{
         frame = new HuntardMainScreen(c);
     }
 
+    //load function
+    public static void load() throws FileNotFoundException{
+	
+	//scanner
+	Scanner sc = new Scanner(new File("autosave.txt"));
+	ArrayList<String[]> saveData = new ArrayList<String[]>();
+	//split save records up
+	while (sc.hasNextLine()){
+		String temp = sc.nextLine();
+		String[] splitData = temp.split("\\s+");
+		saveData.add(splitData);
+	}
+	
+	//show records
+	for(int i = 0; i < saveData.size(); i++){
+		for(int j = 0; j < saveData.get(i).length ; j++){
+			//System.out.println(saveData.get(i)[j]);
+		}
+	}
+
+	ArrayList<Character> loadChars = new ArrayList<Character>();
+	ArrayList<Item> loadItems = new ArrayList<Item>();
+
+	int loadDay, loadKey;
+
+	for(int i = 0; i < saveData.size(); i++){
+		
+		//get day number
+		if(saveData.get(i)[0].equals("Day")){
+			loadDay = Integer.valueOf(saveData.get(i)[1]);
+		}
+		//get key number
+		else if(saveData.get(i)[0].equals("Key")){
+			loadKey = Integer.valueOf(saveData.get(i)[1]);
+		}
+		//create characters
+		else if(saveData.get(i)[0].equals("Char") && saveData.get(i)[2].equals("name")){
+			if(saveData.get(i)[3].equals("Steve")){
+				Character charSteve = new Character("Steve", 3, 1, 0, 2, new ImageIcon("steve.png"), new ImageIcon("sIcon.png"));
+				int tempStamina, tempHP, tempmState, tempHunger, tempThirst;
+
+				i++;
+				tempStamina = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHP = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempmState = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHunger = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempThirst = Integer.valueOf(saveData.get(i)[3]);
+				
+				charSteve.setStamina(tempStamina);
+				charSteve.setHP(tempHP);
+				charSteve.setmState(tempmState);
+				charSteve.setHunger(tempHunger);
+				charSteve.setThirst(tempThirst);
+				
+				loadChars.add(charSteve);
+			}
+			else if(saveData.get(i)[3].equals("Larry")){
+				Character charLarry = new Character("Larry", 1, 2, 3, 0, new ImageIcon("larry.png"), new ImageIcon("lIcon.png"));
+
+				int tempStamina, tempHP, tempmState, tempHunger, tempThirst;
+
+		
+				i++;
+				tempStamina = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHP = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempmState = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHunger = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempThirst = Integer.valueOf(saveData.get(i)[3]);
+				
+				charLarry.setStamina(tempStamina);
+				charLarry.setHP(tempHP);
+				charLarry.setmState(tempmState);
+				charLarry.setHunger(tempHunger);
+				charLarry.setThirst(tempThirst);
+					
+				loadChars.add(charLarry);
+			}
+			else if(saveData.get(i)[3].equals("Joanne")){
+				Character charJoanne = new Character("Joanne", 2, 0, 1, 3, new ImageIcon("joanne.png"), new ImageIcon("jnIcon.png"));
+
+				int tempStamina, tempHP, tempmState, tempHunger, tempThirst;
+
+				i++;
+				tempStamina = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHP = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempmState = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHunger = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempThirst = Integer.valueOf(saveData.get(i)[3]);
+				
+				charJoanne.setStamina(tempStamina);
+				charJoanne.setHP(tempHP);
+				charJoanne.setmState(tempmState);
+				charJoanne.setHunger(tempHunger);
+				charJoanne.setThirst(tempThirst);
+					
+				loadChars.add(charJoanne);
+			}
+			else if(saveData.get(i)[3].equals("Joe")){
+				Character charJoe = new Character("Joe", 0, 3, 2, 1, new ImageIcon("joe.png"), new ImageIcon("jIcon.png"));
+
+				int tempStamina, tempHP, tempmState, tempHunger, tempThirst;
+
+				i++;
+				tempStamina = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHP = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempmState = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempHunger = Integer.valueOf(saveData.get(i)[3]);
+				i++;
+				tempThirst = Integer.valueOf(saveData.get(i)[3]);
+				
+				charJoe.setStamina(tempStamina);
+				charJoe.setHP(tempHP);
+				charJoe.setmState(tempmState);
+				charJoe.setHunger(tempHunger);
+				charJoe.setThirst(tempThirst);					
+
+				loadChars.add(charJoe);
+			}
+			else{
+				System.out.println("**");
+			}
+		}
+		//add food to loadItems
+		else if(saveData.get(i)[0].equals("Resource") && saveData.get(i)[3].equals("Food")){
+			Resource tempFood = new Resource("Food", new ImageIcon("foodIcon.png"), new ImageIcon("food.png"), 0);
+			int tempAmount, tempDurability;
+
+			i++;
+			tempAmount = Integer.valueOf(saveData.get(i)[3]);
+			i++;
+			tempDurability = Integer.valueOf(saveData.get(i)[3]);
+
+			tempFood.setAmount(tempAmount);
+			tempFood.setDurability(tempDurability);
+
+			loadItems.add(tempFood);
+		}
+		//add water to loadItems
+		else if(saveData.get(i)[0].equals("Resource") && saveData.get(i)[3].equals("Water")){
+			Resource tempWater = new Resource("Water", new ImageIcon("waterIcon.png"), new ImageIcon("water.png"), 0);
+			int tempAmount, tempDurability;
+
+			i++;
+			tempAmount = Integer.valueOf(saveData.get(i)[3]);
+			i++;
+			tempDurability = Integer.valueOf(saveData.get(i)[3]);
+
+			tempWater.setAmount(tempAmount);
+			tempWater.setDurability(tempDurability);
+
+			loadItems.add(tempWater);
+		}
+		//add medKit to loadItems
+		else if(saveData.get(i)[0].equals("Resource") && saveData.get(i)[3].equals("Medkit")){
+			Resource tempMedKit = new Resource("Medkit", new ImageIcon("medkitIcon.png"), new ImageIcon("medkit.png"), 0);
+			int tempAmount, tempDurability;
+
+			i++;
+			tempAmount = Integer.valueOf(saveData.get(i)[3]);
+			i++;
+			tempDurability = Integer.valueOf(saveData.get(i)[3]);
+
+			tempMedKit.setAmount(tempAmount);
+			tempMedKit.setDurability(tempDurability);
+
+			loadItems.add(tempMedKit);
+		}
+		//add Pistol to loadItems
+		else if(saveData.get(i)[0].equals("Item") && saveData.get(i)[3].equals("Pistol")){
+			Item tempPistol = new Item("Pistol", new ImageIcon("gunIcon1.png"), new ImageIcon("gun1.png"));
+			int tempAmount, tempDurability;
+
+			i++;
+			tempDurability = Integer.valueOf(saveData.get(i)[3]);
+
+			tempPistol.setDurability(tempDurability);			
+			loadItems.add(tempPistol);
+		}
+		//add Map to loadItems
+		else if(saveData.get(i)[0].equals("Item") && saveData.get(i)[3].equals("Map")){
+			Item tempMap = new Item("Map", new ImageIcon("mapIcon.png"), new ImageIcon("map.png"));
+			int tempAmount, tempDurability;
+
+			i++;
+			tempDurability = Integer.valueOf(saveData.get(i)[3]);
+
+			tempMap.setDurability(tempDurability);			
+			loadItems.add(tempMap);
+		}
+		else{
+			System.out.println(i + "*");
+		}
+	}
+	for(int i = 0; i < loadChars.size(); i++){
+		System.out.println("Name:" + loadItems.get(i).getName() + " Durability:" + loadItems.get(i).getDurability());
+	}
+}
+
     public static void main(String[] args){
 	ArrayList<Character> c = new ArrayList<Character>();
 	Character charSteve = new Character("Steve", 3, 1, 0, 2, new ImageIcon("steve.png"), new ImageIcon("sIcon.png"));
 	Character charLarry = new Character("Larry", 1, 2, 3, 0, new ImageIcon("larry.png"), new ImageIcon("lIcon.png"));
 	Character charJoanne = new Character("Joanne", 2, 0, 1, 3, new ImageIcon("joanne.png"), new ImageIcon("jnIcon.png"));
+	Character charJoe = new Character("Joe", 0, 3, 2, 1, new ImageIcon("joe.png"), new ImageIcon("jIcon.png"));
 
 	c.add(charSteve);
 	c.add(charLarry);
 	c.add(charJoanne);
 	startHMS(c);
+	
+	try{
+    load();
+    	}
+    	catch(FileNotFoundException e){
+    		e.printStackTrace();
+    	}
     }
 
     static Character sentCharacter;
