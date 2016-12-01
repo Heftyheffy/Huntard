@@ -139,6 +139,58 @@ public class HuntardMainScreen extends JFrame{
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+    
+    //Save Testing
+    try{
+    	autoSave();
+    	}catch(IOException e){
+    		e.printStackTrace();
+    	}
+   }
+    
+    //save function
+    public void autoSave() throws IOException{
+    	System.out.println("Day Number : " + dayNum);
+    	
+    	File file = new File("autosave.txt");
+    	
+    	// creates the file
+    	file.createNewFile();
+    	
+    	// creates a FileWriter Object
+    	FileWriter writer = new FileWriter(file);
+    	
+    	// Save Day Number
+    	writer.write("Day Number : " + dayNum + "\n");
+
+    	//Save Chars
+    	for(int i = 0; i < chars.size(); i++){
+    		writer.write("Char " + i + " name : "    + chars.get(i).getName() + "\n");
+    		writer.write("Char " + i + " stamina : " + chars.get(i).getStamina() + "\n");
+    		writer.write("Char " + i + " hp : "      + chars.get(i).getHP() + "\n");
+    		writer.write("Char " + i + " mstate : "  + chars.get(i).getmState() + "\n");
+    		writer.write("Char " + i + " hunger : "  + chars.get(i).getHunger() + "\n");
+    		writer.write("Char " + i + " thirst : "  + chars.get(i).getThirst() + "\n");
+    	}
+
+    	//Save Resources and Items
+    	for(int i = 0; i < listItem.size(); i++){
+    		if (i < 3){
+    			writer.write("Resource " + i + " name : "       + listItem.get(i).getName() + "\n");
+    			Resource temp = (Resource)listItem.get(i);
+    			int tempAmt = temp.getAmount();
+    			writer.write("Resource " + i + " amount : " + (tempAmt + "\n"));
+    			writer.write("Resource " + i + " durability : " + listItem.get(i).getDurability() + "\n");
+    		}
+    		else{
+    			writer.write("Item " + i + " name : " + listItem.get(i).getName() + "\n");
+    			writer.write("Item " + i + " durability : " + listItem.get(i).getDurability() + "\n");
+    		}
+    	}
+    	
+    	//close writer
+    	writer.flush();
+    	writer.close();
     }
     
     //Setting up main screen method
