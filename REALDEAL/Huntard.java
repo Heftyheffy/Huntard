@@ -54,7 +54,7 @@ public class Huntard extends JFrame{
 	start = new JButton("New Game");
 	start.setPreferredSize(new Dimension(400, 100));
 	start.setBackground(Color.black);
-	start.setForeground(Color.white);
+	//start.setForeground(Color.white);
 	start.setRolloverEnabled(false);
 	start.setFocusPainted(false);
 	start.addActionListener(new ButtonListener());
